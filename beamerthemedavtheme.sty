@@ -1,0 +1,263 @@
+% ----------------------------------------------------------------------------------------------------
+%   CORE PACKAGES
+% ----------------------------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}                             % Character encoding
+\usepackage{xparse}                                     % Custom commands
+\usepackage{tikz}                                       % Draw shapes
+% \usetikzlibrary{decorations.text, positioning,calc}
+\usepackage{adjustbox}                                  % tikz resizing
+\usepackage[skins]{tcolorbox}                           % tikz image
+
+\usepackage{soul}                                       % strikethrough
+\usepackage{setspace}                                   % interline
+
+
+
+% ----------------------------------------------------------------------------------------------------
+%   Bibliography
+% ----------------------------------------------------------------------------------------------------
+\usepackage{biblatex}                                   % Bibliography
+
+\addbibresource{bib.bib}
+
+
+% ----------------------------------------------------------------------------------------------------
+%   LINKS
+%       Note: package hyperref must be loaded as last package
+% ----------------------------------------------------------------------------------------------------
+\usepackage{hyperref}           
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+
+% ----------------------------------------------------------------------------------------------------
+%   
+% ----------------------------------------------------------------------------------------------------
+
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\RequirePackage[utf8]{inputenc}
+
+% Settings
+\useinnertheme{davtheme}
+\useoutertheme{davtheme}
+\usecolortheme{davtheme}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+
+\mode<all>
+
+
+% ----------------------------------------------------------------------------------------------------
+%   AUTOMATIC TOC
+% ----------------------------------------------------------------------------------------------------
+% Automatic TOC
+% \AtBeginSection[]
+% {
+%   \begin{frame}
+%     \frametitle{Indice}
+%     \tableofcontents[currentsection]
+%   \end{frame}
+% }
+
+
+
+% ----------------------------------------------------------------------------------------------------
+%   TITLE
+% ----------------------------------------------------------------------------------------------------
+% \addAuthor
+%   Inserts an author in the title slide
+% #1 - optional: item width
+% #2: author name
+% #3: author institution
+% #4 - optional: author email
+\NewDocumentCommand\addAuthor{O{1.5in} m m o}{%
+    \IfNoValueTF{#4}{%  No email
+        \parbox[t]{#1}{#2\inst{#3}}%
+        % #2\inst{#3}%
+    }{% Email
+        \parbox[t]{#1}{\setstretch{.8}#2\inst{#3}\\{\small\href{mailto:#4}{#4}}}%
+    }%
+}
+% ----------------------------------------------------------------------------------------------------
+%   CONTENT
+% ----------------------------------------------------------------------------------------------------
+% \image
+%   Inserts an image in a frame
+% #1 - optional: image scale x
+% #2 - optional: image scale y
+% #3 - optional: border radius
+% #4: the image name
+\NewDocumentCommand\image{O{1} O{1} O{3cm} m}{
+    \maxsizebox{#1\textwidth}{#2\textheight}{
+        \begin{tikzpicture}
+            % phantom image, for getting the actual size ratio
+            \phantom{
+                \node (image) at (0,0) {\includegraphics{res/#4}};
+            }
+
+            % a rectangle with rounded corners containing the actual image
+            \filldraw[rounded corners=#3, fill overzoom image={res/#4}] (image.south west) rectangle (image.north east) {};
+
+% vedi tutorial salvato
+            % \filldraw[rounded corners=#3, fill overzoom image={res/#4}, yscale=-1] (image.south west) rectangle (image.south east) {};
+        \end{tikzpicture}
+    }
+}
+
+% ----------------------------------------------------------------------------------------------------
+%   FRAMES
+% ----------------------------------------------------------------------------------------------------
+% \maketitleframe
+% Create a new title frame
+\NewDocumentCommand\maketitleframe{}{
+    {
+        \setcolorTitle
+    
+        \setbeamertemplate{background}{
+            \begin{tikzpicture}
+                \fill[fill=TitleBg] (0,0) rectangle (\paperwidth, \paperheight) ;
+                % \path[fill overzoom image={res/section_bg.jpg}, fill image opacity=.3] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={res/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \end{tikzpicture}
+        }
+        
+        \frame{\titlepage}
+    }
+}
+
+
+% \makesectionframe
+% Create a new section frame
+% #1: section title
+% #2 (optional): section subtitle
+\NewDocumentCommand\makesectionframe{m O{}}{
+    {
+        \setcolorSection
+    
+        \setbeamertemplate{background}{
+            \begin{tikzpicture}
+                \path[fill overzoom image={res/bgS.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={res/bg-decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+                
+                \path[fill=LightGray]
+                    (0,.35\paperheight) .. controls (.2\paperwidth, .3\paperheight) and (.8\paperwidth, .3\paperheight) .. (\paperwidth,.35\paperheight)
+                    -- (\paperwidth,0) -- (0,0) -- cycle ;
+
+            \end{tikzpicture}
+        }
+         
+        
+        \begin{frame}
+            \section{#1}
+            \framesubtitle{#2}
+            \usebeamertemplate{section}
+        \end{frame}
+    }
+}
+
+% bibframe environment
+%   Adds a frame for bibliography
+\newenvironment{bibframe}
+% before
+{
+    \setcolorContent
+
+    \setbeamertemplate{background}{
+        \begin{tikzpicture}
+            \path[fill overzoom image={res/bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={res/decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+        \end{tikzpicture}
+    }
+    
+    \begin{frame}[allowframebreaks]
+}
+% after
+{
+        \printbibliography
+    \end{frame}
+}
+
+% contentframe environment
+%   Adds a frame for standard content
+\newenvironment{contentframe}
+% before
+{
+    \setcolorContent
+
+    \setbeamertemplate{background}{
+        \begin{tikzpicture}
+            \path[fill overzoom image={res/bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={res/decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+        \end{tikzpicture}
+    }
+    
+    \begin{frame}
+}
+% after
+{
+    \end{frame}
+}
+
+% exerciseframe environment
+%   Adds a frame for exercises
+\newenvironment{exerciseframe}
+% before
+{
+    \setcolorExercise
+
+    \setbeamertemplate{background}{
+        \begin{tikzpicture}
+            \fill[fill=ExerciseBg] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={res/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            % \path[fill overzoom image={res/exercise_bg.jpg}, fill image opacity=.2] (0,0) rectangle (\paperwidth, \paperheight) ;
+        \end{tikzpicture}
+    }
+    
+    \begin{frame}
+}
+% after
+{
+    \end{frame}
+}
+
+% exampleframe environment
+%   Adds a frame for examples
+\newenvironment{exampleframe}
+% before
+{
+    \setcolorExample
+
+        \setbeamertemplate{background}{
+            \begin{tikzpicture}
+                % \path[fill overzoom image={res/example_bg.jpg}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[shading = axis,rectangle, left color=ExampleBgGradient1, right color=ExampleBgGradient2,shading angle=0, anchor=north]
+                    (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={res/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+
+                \path[fill=LightGray] (0,0) -- (.85\paperwidth,0) -- (.70\paperwidth,\paperheight) -- (0,\paperheight) -- cycle ;
+            \end{tikzpicture}
+        }
+    
+    \begin{frame}
+        \columns
+            \column{.8\textwidth}
+            
+}
+% after
+{
+        
+            \column{.2\textwidth}
+        \endcolumns
+    \end{frame}
+}
+

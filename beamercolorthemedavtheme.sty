@@ -1,0 +1,111 @@
+\mode<presentation>
+
+% -------------------------------------------
+%   Not really color stuff
+% \setbeamerfont{footnote}{size=\scriptsize}
+% -------------------------------------------
+
+
+
+% Define colors
+\definecolor{LightGray}{RGB}{235, 235, 235}
+\definecolor{Gray}{RGB}{216, 216, 216}
+\definecolor{TitleBg}{RGB}{16, 76, 126}
+\definecolor{ExerciseBg}{RGB}{157, 52, 6}
+\definecolor{ExampleBgGradient1}{RGB}{89, 89, 89}
+\definecolor{ExampleBgGradient2}{RGB}{24, 24, 24}
+
+
+% Default values
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{institute}{fg=Gray}
+\setbeamercolor{section in toc}{fg=white}
+\setbeamercolor{section in toc shaded}{fg=black}
+\setbeamercolor{subsection in toc}{fg=red}
+\setbeamercolor{background canvas}{bg=LightGray}
+\setbeamercolor{block body}{fg=black}
+\setbeamercolor{block body example}{fg=black}
+\setbeamercolor{block body alerted}{fg=black}
+\setbeamercolor{bibliography item}{fg=white}
+\setbeamercolor*{bibliography entry author}{fg=white}
+\setbeamercolor*{bibliography entry title}{fg=green}
+\setbeamercolor*{bibliography entry location}{fg=Gray}
+\setbeamercolor*{bibliography entry note}{fg=Gray}
+
+% \setbeamercolor{footer}{fg=black}
+% \setbeamercolor{frametitle}{fg=black}
+% \setbeamercolor{background canvas}{bg=white}
+% \setbeamercolor{normal text}{fg=black}
+% \usebeamercolor[fg]{normal text}
+% \setbeamercolor{item}{fg=blue}
+
+% \setcolorTheme
+% Sets the color scheme for the current frame.
+% Normal version sets the Light theme, starred version sets the Dark theme
+% #1 (*): set the theme to Dark
+
+\NewDocumentCommand\setcolorTheme{s}{
+    \IfBooleanTF{#1}
+    % dark theme
+    {
+        \setbeamercolor{author in head/foot}{fg=white}
+        \setbeamercolor{date in head/foot}{fg=white}
+        \setbeamercolor{page number in head/foot}{fg=white}
+        \setbeamercolor{frametitle}{fg=white}
+        \setbeamercolor{normal text}{fg=white}
+        \setbeamercolor{item}{fg=cyan!50}
+        \setbeamercolor{alerted text}{fg=green}
+    }
+    % light theme
+    {
+        \setbeamercolor{author in head/foot}{fg=black}
+        \setbeamercolor{date in head/foot}{fg=black}
+        \setbeamercolor{page number in head/foot}{fg=black}
+        \setbeamercolor{frametitle}{fg=black}
+        \setbeamercolor{normal text}{fg=black}
+        \setbeamercolor{item}{fg=black}
+        \setbeamercolor{alerted text}{fg=red}
+    }
+
+    % common
+    \usebeamercolor[fg]{normal text}
+}
+
+\NewDocumentCommand\setcolorTitle{}{
+    \setcolorTheme*
+    % \setbeamercolor{frametitle}{fg=white}
+    % \setbeamercolor{footer}{fg=black}
+}
+
+
+\NewDocumentCommand\setcolorSection{}{
+    \setbeamercolor{frametitle}{fg=white}
+    \setbeamercolor{author in head/foot}{fg=black}
+    \setbeamercolor{date in head/foot}{fg=black}
+    \setbeamercolor{page number in head/foot}{fg=black}
+}
+
+
+
+\NewDocumentCommand\setcolorContent{}{
+    \setcolorTheme*
+
+    \setbeamercolor{background canvas}{bg=cyan}
+}
+
+\NewDocumentCommand\setcolorExercise{}{
+    \setcolorTheme*
+    \setbeamercolor{item}{fg=white}
+    \setbeamercolor{alerted text}{fg=yellow}
+    
+    \setbeamercolor{background canvas}{bg=orange}
+}
+
+\NewDocumentCommand\setcolorExample{}{
+    \setcolorTheme
+    \setbeamercolor{page number in head/foot}{fg=white}
+
+    \setbeamercolor{background canvas}{bg=LightGray}
+}
+
+\mode<all>

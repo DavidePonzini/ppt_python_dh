@@ -1,0 +1,81 @@
+\mode<presentation>
+
+% Frame title
+\setbeamertemplate{title page}{%
+    {%
+    \usebeamercolor[fg]{title}
+    \usebeamerfont{title}
+        \textsc{\inserttitle}
+    }
+
+    {%
+        \ifx\insertsubtitle\@empty%
+            
+        \else
+            \par\smallskip
+            \insertsubtitle
+        \fi%
+    }
+    \par\medskip
+
+    {%
+    \color{blue!30!cyan}
+        \rule{\linewidth}{1pt}
+    }
+    \par\medskip
+    
+    {%
+    \usebeamercolor[fg]{author}
+    \usebeamerfont{author}
+        \insertauthor
+    }\par\medskip
+
+    
+    {%
+    \usebeamercolor[fg]{institute}
+    \usebeamerfont{institute}
+        \insertinstitute
+    }\par\bigskip
+
+    {%
+    \usebeamercolor[fg]{date}
+    \usebeamerfont{date}
+        \insertdate
+    }\par
+}
+
+
+% Frame title
+\defbeamertemplate*{frametitle}{davtheme}[1][]{%
+    \begin{beamercolorbox}[wd=\dimexpr(\paperwidth-60pt),ht=1.2cm]{frametitle}%
+        \textsc{\insertframetitle}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=\dimexpr(\paperwidth-60pt),ht=0.6cm]{frametitle}%
+        \small\insertframesubtitle%
+    \end{beamercolorbox}%
+}
+
+% FOOTER
+\setbeamertemplate{footline}{
+    \vspace{6pt}%
+    \leavevmode%
+    \hbox{%
+        \hspace{30pt}%
+        \begin{beamercolorbox}[wd=\dimexpr.7\paperwidth-60pt\relax,ht=2.25ex,dp=1ex,left]{author in head/foot}%
+            \insertshortauthor%
+            \expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}%
+                {}%
+                {~~(\insertshortinstitute)}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,right]{date in head/foot}%
+            \insertshortdate{}\hspace*{2em}%
+        \end{beamercolorbox}%
+        \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,right]{page number in head/foot}%
+            \insertframenumber{}% / \inserttotalframenumber\hspace*{2ex} 
+        \end{beamercolorbox}%
+        \hspace{30pt}%
+    }%
+    \vspace{14pt}%
+}
+
+\mode<all>
