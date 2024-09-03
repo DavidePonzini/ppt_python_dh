@@ -5,15 +5,19 @@
 \usepackage[utf8]{inputenc}                             % Character encoding
 \usepackage{xparse}                                     % Custom commands
 \usepackage{tikz}                                       % Draw shapes
-% \usetikzlibrary{decorations.text, positioning,calc}
+\usetikzlibrary{fadings}                                % image reflection effect
+% \usepackage{fancyvrb}                                   % verbatim with box
+
 \usepackage{adjustbox}                                  % tikz resizing
 \usepackage[skins]{tcolorbox}                           % tikz image
 
 \usepackage{soul}                                       % strikethrough
 \usepackage{setspace}                                   % interline
 
+% \usepackage{smartdiagram}                               % smart arts
+\usepackage{forest}                                     % smart arts (trees)
 
-
+% \usepackage{fontawesome5}
 % ----------------------------------------------------------------------------------------------------
 %   Bibliography
 % ----------------------------------------------------------------------------------------------------
@@ -34,6 +38,35 @@
     filecolor=magenta,      
     urlcolor=cyan,
 }
+
+% ----------------------------------------------------------------------------------------------------
+%   TIKZ
+% ----------------------------------------------------------------------------------------------------
+% shading speed regulation
+\makeatletter
+\tikzset{vertical custom shading/.code=%
+    {%
+        \pgfmathsetmacro\tikz@vcs@middle{#1}
+        \pgfmathsetmacro\tikz@vcs@bottom{\tikz@vcs@middle/2}
+        \pgfmathsetmacro\tikz@vcs@top{(100-\tikz@vcs@middle)/2+\tikz@vcs@middle}
+        \pgfdeclareverticalshading[tikz@axis@top,tikz@axis@middle,tikz@axis@bottom]{newaxis}{100bp}{%
+            color(0bp)=(tikz@axis@bottom);
+            color(\tikz@vcs@bottom bp)=(tikz@axis@bottom);
+            color(\tikz@vcs@middle bp)=(tikz@axis@middle);
+            color(\tikz@vcs@top bp)=(tikz@axis@top);
+            color(100bp)=(tikz@axis@top)}
+        \pgfkeysalso{/tikz/shading=newaxis}
+    }
+}
+\makeatother  
+
+% reflection fading effect
+\tikzfading[name=reflectionfade,
+    top color=transparent!50,
+    bottom color=transparent!100,
+    middle color=transparent!100,
+    vertical custom shading=60,
+]
 
 
 % ----------------------------------------------------------------------------------------------------
@@ -91,28 +124,73 @@
 % ----------------------------------------------------------------------------------------------------
 %   CONTENT
 % ----------------------------------------------------------------------------------------------------
+% tikzimage
+%   Inserts a tikz picture
+\newenvironment{tikzimage}
+% before
+{
+    \begin{maxsizebox}{\textwidth}{\textheight}
+        \begin{tikzpicture}
+}
+% after
+{
+        \end{tikzpicture}
+    \end{maxsizebox}
+}
+
 % \image
 %   Inserts an image in a frame
 % #1 - optional: image scale x
 % #2 - optional: image scale y
 % #3 - optional: border radius
 % #4: the image name
-\NewDocumentCommand\image{O{1} O{1} O{3cm} m}{
+
+% BUG: png images do not support transparency on all browsers (firefox ok), while jpg images work fine
+\NewDocumentCommand\image{O{1} O{1} O{1cm} m}{
     \maxsizebox{#1\textwidth}{#2\textheight}{
         \begin{tikzpicture}
             % phantom image, for getting the actual size ratio
             \phantom{
-                \node (image) at (0,0) {\includegraphics{res/#4}};
+                \node[anchor=south] (image) at (0,0) {\includegraphics{res/#4}};
+                % image reflection, ignored when computing bounds
+                \begin{scope}[overlay]
+                    \node[anchor=north] (reflection) at (0,0) {\includegraphics{res/#4}};
+                \end{scope}
             }
 
-            % a rectangle with rounded corners containing the actual image
-            \filldraw[rounded corners=#3, fill overzoom image={res/#4}] (image.south west) rectangle (image.north east) {};
+            % ignored from bounds, we already have the phantom elements
+            \begin{scope}[overlay]
+                % a rectangle with rounded corners containing the actual image
+                \filldraw[rounded corners=#3, fill overzoom image={res/#4}] (image.south west) rectangle (image.north east) {};
 
-% vedi tutorial salvato
-            % \filldraw[rounded corners=#3, fill overzoom image={res/#4}, yscale=-1] (image.south west) rectangle (image.south east) {};
+                % image reflection
+                \fill[rounded corners=#3, yscale=-1, scope fading=reflectionfade, fill overzoom image={res/#4}] (reflection.south west) rectangle (reflection.north east) {};
+            \end{scope}
         \end{tikzpicture}
     }
 }
+
+% remark
+%   Dashed box for content
+\NewEnviron{remark}{
+    \par
+    \begin{tikzpicture}
+        \node[rectangle,minimum width=0.9\textwidth] (m) {
+            \begin{minipage}{0.85\textwidth}
+                \BODY
+            \end{minipage}};
+        \draw[dashed] (m.south west) rectangle (m.north east);
+    \end{tikzpicture}
+}
+
+% % code
+% %   a box containg code
+% % note: spacing and indentation are very important for this command
+% \newenvironment{code}
+% % before
+% {\begin{Verbatim}[frame=single]}
+% % after
+% {\end{Verbatim}}
 
 % ----------------------------------------------------------------------------------------------------
 %   FRAMES
@@ -126,8 +204,8 @@
         \setbeamertemplate{background}{
             \begin{tikzpicture}
                 \fill[fill=TitleBg] (0,0) rectangle (\paperwidth, \paperheight) ;
-                % \path[fill overzoom image={res/section_bg.jpg}, fill image opacity=.3] (0,0) rectangle (\paperwidth, \paperheight) ;
-                \path[fill overzoom image={res/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                % \path[fill overzoom image={davtheme/section_bg.jpg}, fill image opacity=.3] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
             \end{tikzpicture}
         }
         
@@ -146,8 +224,8 @@
     
         \setbeamertemplate{background}{
             \begin{tikzpicture}
-                \path[fill overzoom image={res/bgS.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
-                \path[fill overzoom image={res/bg-decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={davtheme/bgS.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={davtheme/bg-decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
                 
                 \path[fill=LightGray]
                     (0,.35\paperheight) .. controls (.2\paperwidth, .3\paperheight) and (.8\paperwidth, .3\paperheight) .. (\paperwidth,.35\paperheight)
@@ -174,8 +252,8 @@
 
     \setbeamertemplate{background}{
         \begin{tikzpicture}
-            \path[fill overzoom image={res/bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
-            \path[fill overzoom image={res/decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
         \end{tikzpicture}
     }
     
@@ -196,8 +274,8 @@
 
     \setbeamertemplate{background}{
         \begin{tikzpicture}
-            \path[fill overzoom image={res/bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
-            \path[fill overzoom image={res/decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
         \end{tikzpicture}
     }
     
@@ -218,8 +296,8 @@
     \setbeamertemplate{background}{
         \begin{tikzpicture}
             \fill[fill=ExerciseBg] (0,0) rectangle (\paperwidth, \paperheight) ;
-            \path[fill overzoom image={res/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
-            % \path[fill overzoom image={res/exercise_bg.jpg}, fill image opacity=.2] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            % \path[fill overzoom image={davtheme/exercise_bg.jpg}, fill image opacity=.2] (0,0) rectangle (\paperwidth, \paperheight) ;
         \end{tikzpicture}
     }
     
@@ -239,10 +317,10 @@
 
         \setbeamertemplate{background}{
             \begin{tikzpicture}
-                % \path[fill overzoom image={res/example_bg.jpg}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                % \path[fill overzoom image={davtheme/example_bg.jpg}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
                 \path[shading = axis,rectangle, left color=ExampleBgGradient1, right color=ExampleBgGradient2,shading angle=0, anchor=north]
                     (0,0) rectangle (\paperwidth, \paperheight) ;
-                \path[fill overzoom image={res/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
 
                 \path[fill=LightGray] (0,0) -- (.85\paperwidth,0) -- (.70\paperwidth,\paperheight) -- (0,\paperheight) -- cycle ;
             \end{tikzpicture}
@@ -261,3 +339,38 @@
     \end{frame}
 }
 
+
+% ----------------------------------------------------------------------------------------------------
+%   SMART ARTS
+% ----------------------------------------------------------------------------------------------------
+
+% smartarttree
+\NewDocumentCommand\smartarttree{O{}}
+{
+    \begin{forest}
+        for tree={
+            grow=south,
+            parent anchor=south,
+            child anchor=north,
+            edge path={
+                \noexpand\path [draw, \forestoption{edge}] (!u.parent anchor) -- +(0,-5pt) -| ($(.child anchor) + (0,5pt)$) -- (.child anchor)\forestoption{edge label};            },
+            anchor=north,
+            l=15mm,
+            s sep=5mm,
+            draw,
+            rounded corners,
+            edge={thick, -latex},
+            inner sep=5pt,  % Adds padding inside the nodes
+            outer sep=0pt,  % Removes extra space outside the nodes
+            where level=0{fill=smartartlvl0}{},
+            where level=1{fill=smartartlvl1}{},
+            where level=2{fill=smartartlvl2}{},
+            where level=3{fill=smartartlvl3}{},
+            font=\sffamily\bfseries,
+            align=center,
+        }
+        [#1]
+    \end{forest}
+}
+
+  
