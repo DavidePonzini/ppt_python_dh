@@ -3,6 +3,7 @@
 % ----------------------------------------------------------------------------------------------------
 
 \usepackage[utf8]{inputenc}                             % Character encoding
+\usepackage{booktabs}                                   % tabular rules
 \usepackage{xparse}                                     % Custom commands
 \usepackage{tikz}                                       % Draw shapes
 \usetikzlibrary{fadings}                                % image reflection effect
@@ -17,7 +18,7 @@
 % \usepackage{smartdiagram}                               % smart arts
 \usepackage{forest}                                     % smart arts (trees)
 
-% \usepackage{fontawesome5}
+\usepackage{fontawesome5}                               % fa icons
 % ----------------------------------------------------------------------------------------------------
 %   Bibliography
 % ----------------------------------------------------------------------------------------------------
@@ -121,6 +122,16 @@
         \parbox[t]{#1}{\setstretch{.8}#2\inst{#3}\\{\small\href{mailto:#4}{#4}}}%
     }%
 }
+
+
+% ----------------------------------------------------------------------------------------------------
+%   UTILITY
+% ----------------------------------------------------------------------------------------------------
+% \col
+%   Creates a column, with size relative to \textwidth
+% #1: column size, relative to \textwidth
+\NewDocumentCommand\col{m}{\column{#1\textwidth}}
+
 % ----------------------------------------------------------------------------------------------------
 %   CONTENT
 % ----------------------------------------------------------------------------------------------------
@@ -328,13 +339,13 @@
     
     \begin{frame}
         \columns
-            \column{.8\textwidth}
+            \col{.8}
             
 }
 % after
 {
         
-            \column{.2\textwidth}
+            \col{.2}
         \endcolumns
     \end{frame}
 }
