@@ -15,7 +15,7 @@
 \usepackage{soul}                                       % strikethrough
 \usepackage{setspace}                                   % interline
 
-% \usepackage{smartdiagram}                               % smart arts
+\usepackage{smartdiagram}                               % smart arts
 \usepackage{forest}                                     % smart arts (trees)
 
 \usepackage{fontawesome5}                               % fa icons
@@ -151,31 +151,40 @@
 
 % \image
 %   Inserts an image in a frame
-% #1 - optional: image scale x
-% #2 - optional: image scale y
-% #3 - optional: border radius
-% #4: the image name
+%   #1 (*): removes reflection
+%   #2 - optional: image scale x
+%   #3 - optional: image scale y
+%   #4 - optional: border radius
+%   #5: the image name
 
 % BUG: png images do not support transparency on all browsers (firefox ok), while jpg images work fine
-\NewDocumentCommand\image{O{1} O{1} O{1cm} m}{
-    \maxsizebox{#1\textwidth}{#2\textheight}{
+\NewDocumentCommand\image{s O{1} O{1} O{1cm} m}{
+    \maxsizebox{#2\textwidth}{#3\textheight}{
         \begin{tikzpicture}
             % phantom image, for getting the actual size ratio
             \phantom{
-                \node[anchor=south] (image) at (0,0) {\includegraphics{res/#4}};
+                \node[anchor=south] (image) at (0,0) {\includegraphics{res/#5}};
                 % image reflection, ignored when computing bounds
-                \begin{scope}[overlay]
-                    \node[anchor=north] (reflection) at (0,0) {\includegraphics{res/#4}};
-                \end{scope}
+                \IfBooleanTF{#1}
+                {} % starred version: no reflection
+                {
+                    \begin{scope}[overlay]
+                        \node[anchor=north] (reflection) at (0,0) {\includegraphics{res/#5}};
+                    \end{scope}
+                }
             }
 
             % ignored from bounds, we already have the phantom elements
             \begin{scope}[overlay]
                 % a rectangle with rounded corners containing the actual image
-                \filldraw[rounded corners=#3, fill overzoom image={res/#4}] (image.south west) rectangle (image.north east) {};
+                \filldraw[rounded corners=#4, fill overzoom image={res/#5}] (image.south west) rectangle (image.north east) {};
 
-                % image reflection
-                \fill[rounded corners=#3, yscale=-1, scope fading=reflectionfade, fill overzoom image={res/#4}] (reflection.south west) rectangle (reflection.north east) {};
+                \IfBooleanTF{#1}
+                {} % starred version: no reflection
+                {
+                    % image reflection
+                    \fill[rounded corners=#4, yscale=-1, scope fading=reflectionfade, fill overzoom image={res/#5}] (reflection.south west) rectangle (reflection.north east) {};
+                }
             \end{scope}
         \end{tikzpicture}
     }
@@ -384,4 +393,29 @@
     \end{forest}
 }
 
-  
+\NewDocumentCommand\smartartflow{O{}}
+{
+    \begin{center}
+        \smartdiagramset{border color=none,
+            set color list={smartartlvl0,smartartlvl1,smartartlvl2,smartartlvl3},
+            back arrow disabled=true
+        }
+        \smartdiagram[flow diagram:horizontal]{#1}
+    \end{center}
+}
+
+% SmartArt Sequence Diagram
+%   #1: Items, separated by commas
+%   #2: number of lines in height
+\NewDocumentCommand\smartartsequence{O{} O{2}}
+{
+    \begin{center}
+        \smartdiagramset{
+            border color=none,
+            set color list={smartartlvl0,smartartlvl1,smartartlvl2,smartartlvl3},
+            sequence item border size=1.2\pgflinewidth,
+            sequence item height=#2\baselineskip,
+        }
+        \smartdiagram[sequence diagram]{#1}
+    \end{center}
+}
