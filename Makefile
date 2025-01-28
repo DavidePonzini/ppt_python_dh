@@ -3,6 +3,6 @@ add_remote:
 
 rebase:
 	git fetch template
-	git rebase template/main
+	git rebase -X theirs template/main
 	git pull
 	git push
