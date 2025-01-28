@@ -1,95 +1,11 @@
-% ----------------------------------------------------------------------------------------------------
-%   CORE PACKAGES
-% ----------------------------------------------------------------------------------------------------
-
-\usepackage[utf8]{inputenc}                             % character encoding
-\usepackage{booktabs}                                   % tabular rules
-\usepackage{xparse}                                     % custom commands
-\usepackage{datetime}                                   % today's date (title slide)
-\usepackage{tikz}                                       % draw shapes
-\usetikzlibrary{fadings}                                % image reflection effect
-% \usepackage{fancyvrb}                                   % verbatim with box
-
-\usepackage{adjustbox}                                  % tikz resizing
-\usepackage[skins]{tcolorbox}                           % tikz image
-
-\usepackage{soul}                                       % strikethrough
-\usepackage{setspace}                                   % interline
-
-\usepackage{smartdiagram}                               % smart arts
-\usepackage{forest}                                     % smart arts (trees)
-
-\usepackage{fontawesome5}                               % fa icons
-
+\usepackage{davtheme/conf}
 
 % ----------------------------------------------------------------------------------------------------
-%   Localization
+%   CONFIGURATION
 % ----------------------------------------------------------------------------------------------------
-\usepackage[italian]{babel}                             % use for presentations in Italian
-
-
-% ----------------------------------------------------------------------------------------------------
-%   Bibliography
-% ----------------------------------------------------------------------------------------------------
-\usepackage{biblatex}                                   % bibliography
-
-\addbibresource{bib.bib}
-
-
-% ----------------------------------------------------------------------------------------------------
-%   LINKS
-%       Note: package hyperref must be loaded as last package
-% ----------------------------------------------------------------------------------------------------
-\usepackage{hyperref}           
-
-\hypersetup{
-    colorlinks=true,
-    linkcolor=blue,
-    filecolor=magenta,      
-    urlcolor=cyan,
-}
-
-% ----------------------------------------------------------------------------------------------------
-%   TIKZ
-% ----------------------------------------------------------------------------------------------------
-% shading speed regulation
-\makeatletter
-\tikzset{vertical custom shading/.code=%
-    {%
-        \pgfmathsetmacro\tikz@vcs@middle{#1}
-        \pgfmathsetmacro\tikz@vcs@bottom{\tikz@vcs@middle/2}
-        \pgfmathsetmacro\tikz@vcs@top{(100-\tikz@vcs@middle)/2+\tikz@vcs@middle}
-        \pgfdeclareverticalshading[tikz@axis@top,tikz@axis@middle,tikz@axis@bottom]{newaxis}{100bp}{%
-            color(0bp)=(tikz@axis@bottom);
-            color(\tikz@vcs@bottom bp)=(tikz@axis@bottom);
-            color(\tikz@vcs@middle bp)=(tikz@axis@middle);
-            color(\tikz@vcs@top bp)=(tikz@axis@top);
-            color(100bp)=(tikz@axis@top)}
-        \pgfkeysalso{/tikz/shading=newaxis}
-    }
-}
-\makeatother  
-
-% reflection fading effect
-\tikzfading[name=reflectionfade,
-    top color=transparent!50,
-    bottom color=transparent!100,
-    middle color=transparent!100,
-    vertical custom shading=60,
-]
-
-
-% ----------------------------------------------------------------------------------------------------
-%   
-% ----------------------------------------------------------------------------------------------------
-
 \mode<presentation>
 
-% Requirement
-\RequirePackage{tikz}
-\RequirePackage[utf8]{inputenc}
-
-% Settings
+% Import other theme components
 \usepackage{davtheme/beamer_inner}
 \usepackage{davtheme/beamer_outer}
 \usepackage{davtheme/beamer_color}
@@ -98,20 +14,6 @@
 \setbeamertemplate{blocks}[rounded][shadow=true]  
 
 \mode<all>
-
-
-% ----------------------------------------------------------------------------------------------------
-%   AUTOMATIC TOC
-% ----------------------------------------------------------------------------------------------------
-% Automatic TOC
-% \AtBeginSection[]
-% {
-%   \begin{frame}
-%     \frametitle{Indice}
-%     \tableofcontents[currentsection]
-%   \end{frame}
-% }
-
 
 
 % ----------------------------------------------------------------------------------------------------
@@ -126,7 +28,6 @@
 \NewDocumentCommand\addAuthor{O{1.5in} m m o}{%
     \IfNoValueTF{#4}{%  No email
         \parbox[t]{#1}{#2\inst{#3}}%
-        % #2\inst{#3}%
     }{% Email
         \parbox[t]{#1}{\setstretch{.8}#2\inst{#3}\\{\small\href{mailto:#4}{#4}}}%
     }%

@@ -1,0 +1,85 @@
+% ----------------------------------------------------------------------------------------------------
+%   CORE PACKAGES
+% ----------------------------------------------------------------------------------------------------
+
+\usepackage[utf8]{inputenc}                             % character encoding
+\usepackage{booktabs}                                   % tabular rules
+\usepackage{xparse}                                     % custom commands
+\usepackage{datetime}                                   % today's date (title slide)
+\usepackage{tikz}                                       % draw shapes
+\usetikzlibrary{fadings}                                % image reflection effect
+% \usepackage{fancyvrb}                                   % verbatim with box
+
+\usepackage{adjustbox}                                  % tikz resizing
+\usepackage[skins]{tcolorbox}                           % tikz image
+
+\usepackage{soul}                                       % strikethrough
+\usepackage{setspace}                                   % interline
+
+\usepackage{smartdiagram}                               % smart arts
+\usepackage{forest}                                     % smart arts (trees)
+
+\usepackage{fontawesome5}                               % fa icons
+
+
+% ----------------------------------------------------------------------------------------------------
+%   Localization
+% ----------------------------------------------------------------------------------------------------
+\usepackage[italian]{babel}                             % use for presentations in Italian
+\usepackage{csquotes}                                   % required by babel
+
+
+% ----------------------------------------------------------------------------------------------------
+%   Bibliography
+% ----------------------------------------------------------------------------------------------------
+\usepackage{biblatex}                                   % bibliography
+
+\addbibresource{bib.bib}
+
+
+% ----------------------------------------------------------------------------------------------------
+%   LINKS
+%       Note: package hyperref must be loaded as last package
+% ----------------------------------------------------------------------------------------------------
+\usepackage{hyperref}           
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% alternative commands for PDF mode
+\pdfstringdefDisableCommands{%
+  \def\addAuthor#1#2#3[#4]{#2 - #3}%
+}
+
+% ----------------------------------------------------------------------------------------------------
+%   TIKZ
+% ----------------------------------------------------------------------------------------------------
+% shading speed regulation
+\makeatletter
+\tikzset{vertical custom shading/.code=%
+    {%
+        \pgfmathsetmacro\tikz@vcs@middle{#1}
+        \pgfmathsetmacro\tikz@vcs@bottom{\tikz@vcs@middle/2}
+        \pgfmathsetmacro\tikz@vcs@top{(100-\tikz@vcs@middle)/2+\tikz@vcs@middle}
+        \pgfdeclareverticalshading[tikz@axis@top,tikz@axis@middle,tikz@axis@bottom]{newaxis}{100bp}{%
+            color(0bp)=(tikz@axis@bottom);
+            color(\tikz@vcs@bottom bp)=(tikz@axis@bottom);
+            color(\tikz@vcs@middle bp)=(tikz@axis@middle);
+            color(\tikz@vcs@top bp)=(tikz@axis@top);
+            color(100bp)=(tikz@axis@top)}
+        \pgfkeysalso{/tikz/shading=newaxis}
+    }
+}
+\makeatother  
+
+% reflection fading effect
+\tikzfading[name=reflectionfade,
+    top color=transparent!50,
+    bottom color=transparent!100,
+    middle color=transparent!100,
+    vertical custom shading=60,
+]
