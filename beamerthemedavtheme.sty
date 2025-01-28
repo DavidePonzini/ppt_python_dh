@@ -2,10 +2,11 @@
 %   CORE PACKAGES
 % ----------------------------------------------------------------------------------------------------
 
-\usepackage[utf8]{inputenc}                             % Character encoding
+\usepackage[utf8]{inputenc}                             % character encoding
 \usepackage{booktabs}                                   % tabular rules
-\usepackage{xparse}                                     % Custom commands
-\usepackage{tikz}                                       % Draw shapes
+\usepackage{xparse}                                     % custom commands
+\usepackage{datetime}                                   % today's date (title slide)
+\usepackage{tikz}                                       % draw shapes
 \usetikzlibrary{fadings}                                % image reflection effect
 % \usepackage{fancyvrb}                                   % verbatim with box
 
@@ -19,10 +20,18 @@
 \usepackage{forest}                                     % smart arts (trees)
 
 \usepackage{fontawesome5}                               % fa icons
+
+
+% ----------------------------------------------------------------------------------------------------
+%   Localization
+% ----------------------------------------------------------------------------------------------------
+\usepackage[italian]{babel}                             % use for presentations in Italian
+
+
 % ----------------------------------------------------------------------------------------------------
 %   Bibliography
 % ----------------------------------------------------------------------------------------------------
-\usepackage{biblatex}                                   % Bibliography
+\usepackage{biblatex}                                   % bibliography
 
 \addbibresource{bib.bib}
 
