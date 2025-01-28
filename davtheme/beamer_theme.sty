@@ -90,9 +90,9 @@
 \RequirePackage[utf8]{inputenc}
 
 % Settings
-\useinnertheme{davtheme}
-\useoutertheme{davtheme}
-\usecolortheme{davtheme}
+\usepackage{davtheme/beamer_inner}
+\usepackage{davtheme/beamer_outer}
+\usepackage{davtheme/beamer_color}
 
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{blocks}[rounded][shadow=true]  
@@ -233,8 +233,8 @@
         \setbeamertemplate{background}{
             \begin{tikzpicture}
                 \fill[fill=TitleBg] (0,0) rectangle (\paperwidth, \paperheight) ;
-                % \path[fill overzoom image={davtheme/section_bg.jpg}, fill image opacity=.3] (0,0) rectangle (\paperwidth, \paperheight) ;
-                \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                % \path[fill overzoom image={davtheme/res/section_bg.jpg}, fill image opacity=.3] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={davtheme/res/content_decoration.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
             \end{tikzpicture}
         }
         
@@ -253,8 +253,8 @@
     
         \setbeamertemplate{background}{
             \begin{tikzpicture}
-                \path[fill overzoom image={davtheme/bgS.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
-                \path[fill overzoom image={davtheme/bg-decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={davtheme/res/section_bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={davtheme/res/section_decoration.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
                 
                 \path[fill=LightGray]
                     (0,.35\paperheight) .. controls (.2\paperwidth, .3\paperheight) and (.8\paperwidth, .3\paperheight) .. (\paperwidth,.35\paperheight)
@@ -281,8 +281,8 @@
 
     \setbeamertemplate{background}{
         \begin{tikzpicture}
-            \path[fill overzoom image={davtheme/bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
-            \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/res/content_bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/res/content_decoration.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
         \end{tikzpicture}
     }
     
@@ -303,8 +303,8 @@
 
     \setbeamertemplate{background}{
         \begin{tikzpicture}
-            \path[fill overzoom image={davtheme/bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
-            \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/res/content_bg.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/res/content_decoration.png}, fill image opacity=1]   (0,0) rectangle (\paperwidth, \paperheight) ;
         \end{tikzpicture}
     }
     
@@ -325,8 +325,8 @@
     \setbeamertemplate{background}{
         \begin{tikzpicture}
             \fill[fill=ExerciseBg] (0,0) rectangle (\paperwidth, \paperheight) ;
-            \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
-            % \path[fill overzoom image={davtheme/exercise_bg.jpg}, fill image opacity=.2] (0,0) rectangle (\paperwidth, \paperheight) ;
+            \path[fill overzoom image={davtheme/res/content_decoration.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+            % \path[fill overzoom image={davtheme/res/exercise_bg.jpg}, fill image opacity=.2] (0,0) rectangle (\paperwidth, \paperheight) ;
         \end{tikzpicture}
     }
     
@@ -346,10 +346,10 @@
 
         \setbeamertemplate{background}{
             \begin{tikzpicture}
-                % \path[fill overzoom image={davtheme/example_bg.jpg}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                % \path[fill overzoom image={davtheme/res/example_bg.jpg}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
                 \path[shading = axis,rectangle, left color=ExampleBgGradient1, right color=ExampleBgGradient2,shading angle=0, anchor=north]
                     (0,0) rectangle (\paperwidth, \paperheight) ;
-                \path[fill overzoom image={davtheme/decor.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
+                \path[fill overzoom image={davtheme/res/content_decoration.png}, fill image opacity=1] (0,0) rectangle (\paperwidth, \paperheight) ;
 
                 \path[fill=LightGray] (0,0) -- (.85\paperwidth,0) -- (.70\paperwidth,\paperheight) -- (0,\paperheight) -- cycle ;
             \end{tikzpicture}
