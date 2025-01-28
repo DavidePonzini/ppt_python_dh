@@ -1,3 +1,3 @@
 rebase:
-	git template/main
 	git fetch template
+	git rebase template/main
