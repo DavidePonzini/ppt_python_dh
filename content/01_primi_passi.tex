@@ -1,3 +1,111 @@
+\makesectionframe{Utilizzo del terminale}
+\begin{contentframe}
+    \frametitle{Il terminale}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item I termini \textit{``terminale''}, \textit{``shell''} e \textit{``prompt dei comandi''} si riferiscono alla stessa cosa
+
+            \bigskip
+            \item Useremo il terminale spessissimo in questo corso, è molto importante imparare ad usarlo bene fin da subito
+        \end{itemize}
+
+        \col{.5}
+        \centering
+        \image[1][.7]{shell.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Utilizzo del terminale}
+
+    \begin{itemize}
+        \item Interfaccia grafica minimale per eseguire comandi e visualizzarne l'output
+        \begin{itemize}
+            \item Supporta solo formati testuali
+        \end{itemize}
+
+        \bigskip
+        \item I comandi sono eseguiti quando premo \textbf{Invio}
+        \item Eventuali parametri sono separati tramite il carattere \textbf{Spazio}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Utilizzo del terminale}
+    \frametitle{Cambiare cartelle}
+
+    \begin{itemize}
+        \item La riga corrente del prompt mi indica sempre in che cartella mi trovo
+        \begin{itemize}
+            \item Si può personalizzare per indicare anche altre informazioni, ma è fuori dallo scope di questo corso 
+        \end{itemize}
+        
+        \bigskip
+        \item Per cambiare cartella uso il comando \boxed{\texttt{cd}} \textit{(Change Directory)}
+        \begin{itemize}
+            \item \boxed{\texttt{cd NomeCartella}}
+            
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Utilizzo del terminale}
+    \frametitle{Cambiare cartelle -- errori comuni}
+
+    \centering
+    \boxed{\texttt{cd NomeCartella}}
+    \bigskip
+    
+    \begin{itemize}
+        \item Lo spazio è importante: separa il nome del comando dal nome del parametro
+        \begin{itemize}
+            \item \texttt{cdCartella} è un altro comando (che non esiste)
+        \end{itemize}
+        \bigskip
+        
+        \item Se la nostra cartella ha degli spazi bisogna racchiuderla tra virgolette
+        \begin{itemize}
+            \item \texttt{cd "La mia cartella"} oppure \texttt{cd \textquotesingle{}La mia cartella\textquotesingle{}} 
+        \end{itemize}
+        
+        \bigskip
+        \item I caratteri \texttt{"} e \texttt{\textquotesingle{}} sono diversi da ``, '', ` e '
+        \begin{itemize}
+            \item Particolarmente importante quando si fa copia-incolla
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Utilizzo del terminale}
+    \frametitle{Cambiare cartelle -- nomi speciali}
+
+    
+    \begin{itemize}
+        \item Alcune cartelle hanno dei nomi speciali:
+        \begin{itemize}
+            \item \boxed{\texttt{.}}: cartella corrente
+            \item \boxed{\texttt{..}}: livello superiore
+            \item \boxed{\texttt{\tilde}}: livello superiore
+        \end{itemize}
+        \bigskip
+        
+        \item Se la nostra cartella ha degli spazi bisogna racchiuderla tra virgolette
+        \begin{itemize}
+            \item \texttt{cd "La mia cartella"} oppure \texttt{cd \textquotesingle{}La mia cartella\textquotesingle{}} 
+        \end{itemize}
+        
+        \bigskip
+        \item I caratteri \texttt{"} e \texttt{\textquotesingle{}} sono diversi da ``, '', ` e '
+        \begin{itemize}
+            \item Particolarmente importante quando si fa copia-incolla
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
 \makesectionframe{Python}
 
 \begin{exampleframe}
@@ -96,9 +204,6 @@
 
     \begin{itemize}
         \item Eseguire il seguente programma: \fbox{\texttt{print(\textquotesingle{}Hello, world!\textquotesingle{})}}
-
-        \bigskip
-        \item Se usiamo Replit: creare un nuovo Repl di tipo Python, scrivere il codice dentro al file .py, eseguire
 
         \bigskip
         \item Se lavoriamo in locale: creare un file con estensione .py, scrivere il codice, invocare l'interprete col seguente comando da terminale \fbox{\texttt{python nomedelfile.py}}
