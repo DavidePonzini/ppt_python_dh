@@ -1,0 +1,393 @@
+\makesectionframe{Python}
+
+\begin{exampleframe}
+    \frametitle{Curiosità}
+
+    \begin{itemize}
+        \item Python non ha nulla a che fare con i rettili
+        \item Prende il nome dallo show ``Monty Python's Flying Circus''
+    \end{itemize}
+
+    \bigskip
+    \begin{columns}
+        \col{.4}
+        \centering
+        \image{pythons1.jpg}
+        
+        \col{.4}
+        \centering
+        \image{pythons2.jpg}
+    \end{columns}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Python}
+
+    \begin{itemize}
+        \item Linguaggio di programmazione ad alto livello
+        \begin{itemize}
+            \item Sequenza di istruzioni che il computer esegue
+            \item Si può fare qualunque cosa
+            \item Alto livello: non mi devo preoccupare dei dettagli più fini
+        \end{itemize}
+        
+        \bigskip
+        \item Linguaggio interpretato
+        \begin{itemize}
+            \item Il codice non ha bisogno di essere compilato
+        \end{itemize}
+
+        \bigskip
+        \item Esistono tanti moduli con funzionalità già fatte
+        \begin{itemize}
+            \item Permettono di risparmiare tempo
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Linguaggi a basso ed alto livello}
+
+    \begin{itemize}
+        \item Basso livello
+        \begin{itemize}
+            \item Devo indicare in dettaglio come eseguire qualsiasi azione
+            \begin{itemize}
+                \item \textit{Metti il valore 7 sul registro 3 della CPU, poi trasferisci il contenuto del registro 3 sulla cella 4728 della RAM} 
+            \end{itemize}
+            \item Esempio: Assembly
+        \end{itemize}
+
+        \bigskip
+        \item Alto livello
+        \begin{itemize}
+            \item Molto più astratto, indico cosa fare e non come farlo
+            \begin{itemize}
+                \item \textit{\texttt{x = 7}}
+            \end{itemize}
+            \item Esempi: Python, C++, Java
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Linguaggi compilati ed interpretati}
+
+    \begin{itemize}
+        \item Linguaggio compilato
+        \begin{itemize}
+            \item Tramite un programma apposito (compilatore), il codice viene convertito in istruzioni macchina
+            \item Il programma risultante (.exe) si può poi eseguire direttamente senza più bisogno del compilatore
+            \item Esempio: C, C++
+        \end{itemize}
+
+        \bigskip
+        \item Linguaggio interpretato
+        \begin{itemize}
+            \item Le istruzioni sono lette ed eseguite da un programma apposito (interprete)
+            \item Senza interprete, il codice non si può eseguire
+            \item Esempi: Python, Java, Javascript
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Hello, world!}
+
+    \begin{itemize}
+        \item Eseguire il seguente programma: \fbox{\texttt{print(\textquotesingle{}Hello, world!\textquotesingle{})}}
+
+        \bigskip
+        \item Se usiamo Replit: creare un nuovo Repl di tipo Python, scrivere il codice dentro al file .py, eseguire
+
+        \bigskip
+        \item Se lavoriamo in locale: creare un file con estensione .py, scrivere il codice, invocare l'interprete col seguente comando da terminale \fbox{\texttt{python nomedelfile.py}}
+    \end{itemize}
+\end{exerciseframe}
+
+\makesectionframe{Concetti base}
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+
+    \begin{itemize}
+        \item Sequenza di azioni che fa una cosa
+
+        \bigskip
+        \item Esempio: \fbox{\texttt{print(...)}} stampa dati su schermo
+
+        \bigskip
+        \item Sintassi: \texttt{nomedellafunzione(argomento1, argomento2, ...)}
+        \begin{itemize}
+            \item Le parentesi sono obbligatorie SEMPRE
+            \item Gli argomenti sono i valori su cui voglio eseguire le operazioni
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Funzioni}
+
+    Cosa stampano le seguenti funzioni?
+    \begin{itemize}
+        \item \texttt{print(1)}\pause
+        \item \texttt{print(5)}\pause
+        \item \texttt{print(3, 5)}\pause
+        \item \texttt{print(1, 2, 3, 4, 5)}\pause
+        \item \texttt{print()}\pause
+        \item \texttt{print}\pause{} -- Attenzione: non viene eseguita!
+    \end{itemize}
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Variabili}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Permettono di memorizzare dati o risultati
+
+            \bigskip
+            \item Possono avere (quasi) qualunque nome
+            
+            \bigskip
+            \item Hanno diversi tipi, in base a che dati vogliamo salvare
+            \begin{itemize}
+                \item Python li capisce in automatico, ma è importante saperli riconoscere
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{variables.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Variabili}
+    \framesubtitle{Numeri}
+
+    \begin{columns}
+        \col{.5}
+        \centering
+        {\Huge\faCalculator}\\
+        \bigskip
+        \texttt{int}\\
+        \textbf{Numero senza virgola}\\
+        \bigskip
+        1\\124\\-336
+
+        \col{.5}
+        \centering
+        {\Huge\faCalculator}\\
+        \bigskip
+        \texttt{float}\\
+        \textbf{Numero con virgola}\\
+        \bigskip
+        -3.14\\5.0\\\bigskip
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Variabili}
+    \framesubtitle{Testo}
+
+    \begin{columns}
+        \col{1}
+        \centering
+        {\Huge\faPen}\\
+        \bigskip
+        \texttt{str}\\
+        \textbf{Stringa}\\
+        \bigskip
+        \texttt{"}ciao\texttt{"}\\
+        \texttt{"}hello\texttt{"}\\
+        \texttt{"}come stai?\texttt{"}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Variabili}
+    \framesubtitle{Logica}
+
+    \begin{columns}
+        \col{1}
+        \centering
+        {\Huge\faCheck}\\
+        \bigskip
+        \texttt{bool}\\
+        \textbf{Booleano}\\
+        \bigskip
+        True\\False
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Variabili}
+    \framesubtitle{Strutture dati base}
+
+    \begin{columns}
+        \col{.3}
+        \centering
+        {\Huge\faListOl}\\
+        \bigskip
+        \texttt{list}\\
+        \textbf{Lista}\\
+        (sequenza ordinata di elementi)\\
+        \bigskip
+        [1, 2, 2, 3]\\
+        
+        [\texttt{"}ciao\texttt{"}, \texttt{"}come\texttt{"}, \texttt{"}stai\texttt{"}]
+
+        \col{.3}
+        \centering
+        {\Huge\faBars}\\
+        \bigskip
+        \texttt{set}\\
+        \textbf{Set}\\
+        (sequenza senza ripetizioni e senza ordine)\\
+        \bigskip
+        \{1, 5, 9\}\\
+        \{True, False\}
+
+        \col{.3}
+        \centering
+        {\Huge\faThList}\\
+        \bigskip
+        \texttt{dict}\\
+        \textbf{Mappa/Dizionario}\\
+        (coppie chiave-valore)\\
+        \bigskip
+        \bigskip
+        \{\textquotesingle{}Paolo\textquotesingle{}: 8, \textquotesingle{}Alice\textquotesingle{}: 9\}
+        \bigskip
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Variabili}
+    \framesubtitle{Altro}
+
+    \begin{columns}
+        \col{.5}
+        \centering
+        {\Huge\faSitemap}\\
+        \bigskip
+        \texttt{class}\\
+        \textbf{Classi}\\
+        \bigskip
+        Insieme di dati di tipologie diverse
+
+        \col{.5}
+        \centering
+        {\Huge\faTimes}\\
+        \bigskip
+        \texttt{None}\\
+        \textbf{Nessun valore}\\
+        \bigskip
+        \bigskip
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Variabili}
+
+    Salvare in una variabile e stampare i seguenti valori
+    \begin{itemize}
+        \item 7\pause
+        \item 5.5\pause
+        \item ``Ciao come stai?''\pause
+        \item True\pause
+        \item{} [0, 1, 1, 2, 3, 5, 8, 13]\pause
+        \item \{0, 1, 1, 2, 3, 5, 8, 13\}\pause
+        \item I voti associati a tre studenti
+    \end{itemize}
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Operazioni matematiche}
+
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Operazione                      & Operatore     & Esempio           & Risultato         \\
+        \midrule
+        \midrule
+        Somma                           & \texttt{+}    & \texttt{4 + 3}    & \texttt{7}        \\
+        Sottrazione                     & \texttt{-}    & \texttt{4 - 3}    & \texttt{1}        \\
+        Moltiplicazione                 & \texttt{*}    & \texttt{4 * 3}    & \texttt{12}       \\
+        Divisione                       & \texttt{/}    & \texttt{4 / 3}    & \texttt{1.3333}   \\
+        \midrule
+        Elevamento a potenza            & \texttt{**}   & \texttt{4 ** 3}   & \texttt{64}       \\
+        Divisione senza resto           & \texttt{//}   & \texttt{4 // 3}   & \texttt{1}        \\
+        Modulo (resto della divisione)  & \texttt{\%}   & \texttt{4 \% 3}   & \texttt{1}        \\
+    \end{tabular}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Operazioni logiche}
+
+    \centering
+    \begin{tabular}{c|c|c|c}
+        Operazione                      & Operatore     & Esempio                   & Risultato         \\
+        \midrule
+        \midrule
+        Maggiore                        & \texttt{>}    & \texttt{4 > 3}            & \texttt{True}     \\
+        Maggiore o uguale               & \texttt{>=}   & \texttt{4 >= 3}           & \texttt{True}     \\
+        Minore                          & \texttt{<}    & \texttt{4 < 3}            & \texttt{False}    \\
+        Minore o uguale                 & \texttt{<=}   & \texttt{4 <= 3}           & \texttt{False}    \\
+        Uguale                          & \texttt{==}   & \texttt{4 == 3}           & \texttt{False}    \\
+        Diverso                         & \texttt{!=}   & \texttt{4 != 3}           & \texttt{True}     \\
+        \midrule
+        Negazione                       & \texttt{not}  & \texttt{not True}         & \texttt{False}    \\
+        Congiunzione                    & \texttt{and}  & \texttt{True and False}   & \texttt{False}    \\
+        Disgiunzione                    & \texttt{or}   & \texttt{True or False}    & \texttt{True}     \\
+    \end{tabular}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Operazioni}
+
+    Cosa stampa questo programma?
+
+    \bigskip
+    \image[.7]{exercise_logic.jpg}
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Input}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item La funzione \fbox{\texttt{input()}} permette di leggere un valore indicato dall'utente
+    
+            \bigskip
+            \item Come argomento opzionale posso indicare la domanda che viene chiesta prima di leggere
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{input.jpg}
+    \end{columns}
+
+    \bigskip
+    \begin{itemize}
+        \item Attenzione: il valore ritornato è sempre di tipo \texttt{str}
+        \item Per leggere un numero devo convertirlo in \texttt{int}
+        \begin{itemize}
+            \item \fbox{\texttt{x = int(input())}}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Input}
+
+    \begin{itemize}
+        \item Creare un programma che legga 3 numeri e stampi il minimo, il massimo e la media dei valori inseriti
+        \begin{itemize}
+            \item Per calcolare minimo e massimo potete usare le funzioni \fbox{\texttt{min}} e \fbox{\texttt{max}}
+        \end{itemize}
+    \end{itemize}
+\end{exerciseframe}
+

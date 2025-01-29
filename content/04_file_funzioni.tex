@@ -1,0 +1,176 @@
+\begin{contentframe}
+    \frametitle{File}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Due operazioni possibili
+            \begin{itemize}
+                \item Lettura
+                \item Scrittura
+            \end{itemize}
+    
+            \bigskip
+            \item Processo per qualsiasi operazione:
+            \begin{itemize}
+                \item Aprire il file
+                \item Fare le operazioni necessarie
+                \item Chiudere il file
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{file.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{File}
+    \framesubtitle{Keyword \texttt{with}}
+
+    \begin{itemize}
+        \item Con la keywork \texttt{with}, Python chiude il file in automatico
+    \end{itemize}
+
+    \bigskip
+    \begin{columns}
+        \col{.5}
+        \image{file.jpg}
+        
+        \col{.5}
+        \centering
+        \image{file_with.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{File}
+    \framesubtitle{Modalità di apertura file}
+
+    Il secondo argomento indica la modalità di apertura:
+    
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item \texttt{r} \textit{(read)}
+            \begin{itemize}
+                \item Solo lettura (default)
+            \end{itemize}
+            \item \texttt{w} \textit{(write)}
+            \begin{itemize}
+                \item Solo scrittura
+                \item Cancella il contenuto precedente
+            \end{itemize}
+        \end{itemize}
+    
+        \col{.5}
+        \begin{itemize}
+            \item \texttt{a} \textit{(append)}
+            \begin{itemize}
+                \item Solo scrittura
+                \item Mantiene il contenuto precedente
+            \end{itemize}
+            \item \texttt{w+} \textit{(read-write)}
+            \begin{itemize}
+                \item Sia lettura che scrittura
+            \end{itemize}
+        \end{itemize}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{File}
+
+    \begin{itemize}
+        \item Leggere il contenuto di un file e stampare la prima riga su schermo
+        \bigskip
+        \item Creare un file chiamato \texttt{prova.txt} che contenga ``Hello, world!''
+        \bigskip
+        \item Chiedere all'utente un numero e scriverlo in fondo al file \texttt{prova.txt}. Il contenuto precendente del file deve rimanere invariato
+    \end{itemize}
+\end{exerciseframe}
+
+
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Blocchi di codice che fanno una cosa
+            \item Posso riutilizzarli senza dover riscrivere tutto il codice ogni volta
+            \item Permettono di organizzare meglio il codice
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{def.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+    \framesubtitle{Sintassi}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item \texttt{def} indica che voglio definire una nuova funzione
+            \bigskip
+            \item \texttt{return} permette alla funzione di ritornare un risultato
+            \begin{itemize}
+                \item \texttt{return} interrompe l'esecuzione della funzione!
+            \end{itemize}
+            \bigskip
+            \item Posso passare dei valori tramite argomenti
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{def.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+    \framesubtitle{Ricorsione}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Una funzione può a sua volta chiamare altre funzioni
+            \bigskip
+            \item Se una funzione chiama se stessa, si dice \textit{ricorsiva}
+            \begin{itemize}
+                \item Generalmente gli argomenti sono diversi
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{def_fib.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi}
+
+    \begin{enumerate}
+        \item Creare una funzione che converte una temperatura Fahrenheit in Celsius
+        \begin{itemize}
+            \item $C = \frac{(F - 32) * 5}{9}$
+        \end{itemize}
+        \pause
+        \bigskip
+        \item Creare una funzione che ritorna \texttt{True} se un numero è pari, altrimenti \texttt{False}
+        \pause
+        \bigskip
+        \item Creare una funzione che, con l'aiuto della funzione creata precedentemente, indica quanti numeri sono pari in una lista di numeri
+        \pause
+        \bigskip
+        \item Creare una funzione che conta il numero di vocali in una stringa fornita dall'utente
+    \end{enumerate}
+\end{exerciseframe}
+
