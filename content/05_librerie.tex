@@ -1,0 +1,92 @@
+\begin{contentframe}
+    \frametitle{Librerie}
+
+    \begin{itemize}
+        \item Insieme di funzioni già pronte scritte da altre persone
+        \bigskip
+        \item Esistono numerose librerie
+        \item Ciascuna si occupa (generalmente) di una sola cosa
+        \bigskip
+        \item Per usarle nel mio codice uso il comando \texttt{import}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{random}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Permette di generare numeri casuali
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{random.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{time}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Operazioni relative al tempo
+            \bigskip
+            \item \texttt{sleep} permette di bloccare l'esecuzione del programma per un certo numero di secondi
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{time.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{datetime}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Operazioni su date e ore
+            \bigskip
+            \item Contiene:
+            \begin{itemize}
+                \item \texttt{datetime.date}
+                \item \texttt{datetime.time}
+                \item \texttt{datetime.datetime}
+            \end{itemize}
+            \bigskip
+            \item \texttt{datetime.datetime.now} ritorna il timestamp corrente 
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{datetime.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Librerie}
+
+    \begin{itemize}
+        \item Stampare un numero casuale tra 1 e 22. Eseguire il programma più volte per assicurarsi del suo corretto funzionamento.
+
+        \pause
+        \bigskip
+        \item Stampare la data e l'ora corrente.
+
+        \pause
+        \bigskip
+        \item Creare un programma che stampa l'ora attuale, dorme (\texttt{time.sleep}) per 2 secondi e stampa l'ora a cui si risveglia.
+        \pause
+        \begin{itemize}
+            \item Calcolare la quantità di tempo effettivamente trascorsa: sono esattamente 2 secondi?
+        \end{itemize}
+        
+    \end{itemize}
+\end{exerciseframe}
