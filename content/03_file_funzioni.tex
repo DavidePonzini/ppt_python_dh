@@ -1,0 +1,500 @@
+\makesectionframe{File e funzioni}
+
+
+\begin{contentframe}
+    \frametitle{File}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Due operazioni possibili
+            \begin{itemize}
+                \item Lettura
+                \item Scrittura
+            \end{itemize}
+    
+            \bigskip
+            \item Processo per qualsiasi operazione:
+            \begin{itemize}
+                \item Aprire il file
+                \item Fare le operazioni necessarie
+                \item Chiudere il file
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{file.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{File}
+    \framesubtitle{Keyword \texttt{with}}
+
+    \begin{itemize}
+        \item Con la keywork \texttt{with}, Python chiude il file in automatico
+    \end{itemize}
+
+    \bigskip
+    \begin{columns}
+        \col{.5}
+        \image{file.jpg}
+        
+        \col{.5}
+        \centering
+        \image{file_with.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{File}
+    \framesubtitle{Modalità di apertura file}
+
+    Il secondo argomento indica la modalità di apertura:
+    
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item \texttt{r} \textit{(read)}
+            \begin{itemize}
+                \item Solo lettura (default)
+            \end{itemize}
+            \item \texttt{w} \textit{(write)}
+            \begin{itemize}
+                \item Solo scrittura
+                \item Cancella il contenuto precedente
+            \end{itemize}
+        \end{itemize}
+    
+        \col{.5}
+        \begin{itemize}
+            \item \texttt{a} \textit{(append)}
+            \begin{itemize}
+                \item Solo scrittura
+                \item Mantiene il contenuto precedente
+            \end{itemize}
+            \item \texttt{w+} \textit{(read-write)}
+            \begin{itemize}
+                \item Sia lettura che scrittura
+            \end{itemize}
+        \end{itemize}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (1)}
+    \framesubtitle{File}
+
+    \begin{enumerate}
+        \item Leggere il contenuto di un file e stampare la prima riga su schermo
+        \bigskip
+        \item Creare un file chiamato \texttt{prova.txt} che contenga ``Hello, world!''
+        \bigskip
+        \item Chiedere all'utente un numero e scriverlo in fondo al file \texttt{prova.txt}. Il contenuto precedente del file deve rimanere invariato
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (2)}
+    \framesubtitle{File}
+
+    Scaricare il seguente \href{https://raw.githubusercontent.com/DavidePonzini/didattica/refs/heads/main/moby_dick.txt}{file} e salvarlo sul vostro PC
+    
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item Contare il numero di caratteri presenti nel file
+        \item Contare il numero di parole presenti nel file \textit{(suggerimento: usare la funzione \texttt{split})}
+        \item Contare il numero di parole diverse presenti nel file
+        \item Contare il numero di occorrenze di ciascuna parola presente nel file
+    \end{enumerate}
+\end{exerciseframe}
+
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Blocchi di codice che fanno una cosa
+            \item Posso riutilizzarli senza dover riscrivere tutto il codice ogni volta
+            \item Permettono di organizzare meglio il codice
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{def.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+    \framesubtitle{Sintassi}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item \texttt{def} indica che voglio definire una nuova funzione
+            \bigskip
+            \item \texttt{return} permette alla funzione di ritornare un risultato
+            \begin{itemize}
+                \item \texttt{return} interrompe l'esecuzione della funzione!
+            \end{itemize}
+            \bigskip
+            \item Posso passare dei valori tramite argomenti
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{def.jpg}
+    \end{columns}
+\end{contentframe}
+
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+    \framesubtitle{Argomenti delle funzioni}
+
+    \begin{itemize}
+        \item Una funzione può avere più argomenti
+        \begin{itemize}
+            \item Sono identificati dal loro ordine
+        \end{itemize}
+
+        \bigskip
+        \item Gli argomenti possono avere dei valori di default, nel caso non siano specificati
+        \begin{itemize}
+            \item Questi argomenti sono definiti ``opzionali''
+        \end{itemize}
+
+        \bigskip
+        \item Gli argomenti possono essere specificati per posizione o per nome
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+    \framesubtitle{Argomenti delle funzioni}
+
+    \centering
+    \image[1][.7]{def_args.jpg}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+    \framesubtitle{Argomenti delle funzioni (2)}
+
+    \begin{itemize}
+        \item Esistono due argomenti speciali, indicati con \texttt{*} e \texttt{**}
+        
+        \bigskip
+        \item \texttt{*args} prende un numero illimitato di argomenti posizionali e li salva come una lista
+
+        \bigskip
+        \item \texttt{*kwargs} prende un numero illimitato di argomenti opzionali e li salva come un dizionario
+
+        \bigskip
+        \item Si usano solo in certe situazioni, ma sono usati da funzioni molto comuni 
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Argomenti delle funzioni}
+    \framesubtitle{Esempio}
+
+    \begin{itemize}
+        \item La funzione \texttt{print} ha i seguenti argomenti:\\
+            \boxed{\texttt{def print(*args, sep=\textquotesingle{}~\textquotesingle{}, end=\textquotesingle{}\\n\textquotesingle{}, file=None):}}
+
+        \begin{itemize}
+            \item \texttt{*args} prende i valori che volete stampare
+            \item \texttt{sep} (opzionale) indica il separatore tra un valore e l'altro
+            \item \texttt{end} (opzionale) indica cosa verrà stampato dopo l'ultimo valore
+            \item \texttt{file} (opzionale) indica dove verrà stampato il testo. Se è \texttt{None}, stampa su schermo
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Funzioni}
+    \framesubtitle{Ricorsione}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Una funzione può a sua volta chiamare altre funzioni
+            \bigskip
+            \item Se una funzione chiama se stessa, si dice \textit{ricorsiva}
+            \begin{itemize}
+                \item Generalmente gli argomenti sono diversi
+                \item In certe situazioni permette di fare azioni complesse con poche righe di codice
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{def_fib.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi}
+
+    \begin{enumerate}
+        \item Creare una funzione che converte una temperatura Fahrenheit in Celsius
+        \begin{itemize}
+            \item $C = \frac{(F - 32) * 5}{9}$
+        \end{itemize}
+        \pause
+        \bigskip
+        \item Creare una funzione che ritorna \texttt{True} se un numero è pari, altrimenti \texttt{False}
+        \pause
+        \bigskip
+        \item Creare una funzione che, con l'aiuto della funzione creata precedentemente, indica quanti numeri sono pari in una lista di numeri
+        \pause
+        \bigskip
+        \item Creare una funzione che conta il numero di vocali in una stringa fornita dall'utente
+    \end{enumerate}
+\end{exerciseframe}
+
+% \begin{exerciseframe}
+%     \frametitle{Esercizio più complesso}
+
+%     \begin{enumerate}
+%         \item Creare una funzione \boxed{\texttt{vocale(lettera)}} che restituisce \texttt{True} se \texttt{lettera} è una vocale, altrimenti ritorna \texttt{False}
+
+%         \pause
+%         \bigskip
+%         \item Creare una funzione \boxed{\texttt{conta\_vocali(parola)}} che restituisce il numero di vocali in una parola
+        
+%         \pause
+%         \bigskip
+%         \item Creare una funzione \boxed{\texttt{separa(testo)}} che, data una frase, ritorna una lista contenente le varie parole separate tra loro \textit{(suggerimento: usare la funzione   \texttt{split()})}
+
+%         \pause
+%         \bigskip
+%         \item Creare un programma che, dato un testo, calcola il numero massimo di vocali trovate in una parola
+%     \end{enumerate}
+% \end{exerciseframe}
+
+\makesectionframe{Pensiero computazionale}
+
+\begin{contentframe}
+    \frametitle{Pensiero computazionale}
+
+    \begin{itemize}
+        \item Abilità di pensare in modo simile ai computer
+        \bigskip
+        \item Aiuta a scrivere programmi complessi ed organizzare meglio il codice
+        \bigskip
+        \item Ci concentreremo sulla decomposizione di un problema in sottoproblemi
+    \end{itemize}
+\end{contentframe}
+
+
+\begin{contentframe}
+    \frametitle{Divide et impera}
+
+    \begin{itemize}
+        \item Un qualsiasi problema si può definire come un insieme di sottoproblemi più semplici
+        \item Risolvere una parte di un problema è più facile che risolvere l'intero problema in un colpo solo
+        \bigskip
+        \item Questo processo si ripete fino a che ogni parte è semplicissima da risolvere
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Problema generale}
+
+    \centering
+    \smartarttree[Preparare un caffè con la moka]
+\end{contentframe}
+
+
+\begin{contentframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Problema generale}
+
+    \centering
+    \smartarttree[
+        Preparare un caffè con la moka
+        [Preparare la moka]
+        [Far venire su il caffè]
+    ]
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Problema generale}
+
+    \centering
+    \smartarttree[
+        Preparare un caffè con la moka
+        [Preparare la moka]
+        [Far venire su il caffè
+            [Accendere il fuoco]
+            [Aspettare che il caffè venga su]
+            [Spegnere il fuoco]
+        ]
+    ]
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Problema di programmazione}
+
+    \centering
+    \smartarttree[
+        Contare il numero di parole diverse\\presenti in tutti i file del computer 
+    ]
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Problema di programmazione}
+
+    \centering
+    \smartarttree[
+        Contare il numero di parole diverse\\presenti in tutti i file del computer 
+        [Cercare tutti i\\file del computer
+        ]
+        [Contare le parole\\diverse in un file
+        ]
+    ]
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Problema di programmazione}
+
+    \centering
+    \smartarttree[
+        Contare il numero di parole diverse\\presenti in tutti i file del computer 
+        [Cercare tutti i\\file del computer
+            [Cercare\\nella cartella\\corrente]
+            [Cercare\\nelle\\sottocartelle]
+        ]
+        [Contare le parole\\diverse in un file
+        ]
+    ]
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Problema di programmazione}
+
+    \centering
+    \smartarttree[
+        Contare il numero di parole diverse\\presenti in tutti i file del computer 
+        [Cercare tutti i\\file del computer
+            [Cercare\\nella cartella\\corrente]
+            [Cercare\\nelle\\sottocartelle]
+        ]
+        [Contare le parole\\diverse in un file
+            [Leggere il\\contenuto\\del file]
+            [Separare\\le\\parole]
+            [Aggiungere la\\parola se non\\è già presente]
+        ]
+    ]
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Divide et impera}
+
+    \begin{itemize}
+        \item Vediamo un esempio pratico
+        \bigskip
+        \item Vogliamo creare un programma che faccia le seguenti azioni...
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Divide et impera}
+
+    \begin{enumerate}
+        \item Chiedere all'utente il nome di un file
+        \begin{itemize}
+            \item Il nome non può essere vuoto e non può contenere i caratteri `\texttt{?}', `\texttt{/}' e `\texttt{*}'
+            \item Se il nome non è valido, va richiesto fino a che non sia corretto
+        \end{itemize}
+        \item Aprire il file e leggere il suo contenuto
+        \item Contare il numero di vocali contenute nel file
+        \item Chiedere all'utente il nome di un secondo file
+        \begin{itemize}
+            \item Come prima, se il nome non è corretto, richiederlo
+        \end{itemize}
+        \item Aprire il secondo file e scrivere il conteggio effettuato in precedenza
+    \end{enumerate}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Una possibile soluzione}
+
+    \centering
+    \image*[1][.7]{functions_bad.jpg}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Osservazioni}
+
+    \begin{itemize}
+        \item Come vediamo il codice non è molto chiaro
+
+        \bigskip
+        \item Applichiamo ``divide et impera'' ed estraiamo dei sottoproblemi:
+        \begin{itemize}
+            \item Capire se il nome del file è corretto
+            \item Ottenere il nome di un file, assicurandosi sia corretto
+            \item Capire se una lettera è una vocale
+            \item Contare le vocali in una stringa
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Creiamo delle funzioni}
+
+    \centering
+    \image*[1][.7]{functions1.jpg}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Divide et impera}
+    \framesubtitle{Codice finale}
+
+    \centering
+    \image*[1][.7]{functions2.jpg}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio finale}
+
+    Creare un programma che faccia le seguenti azioni.
+    Organizzare il codice in funzioni come spiegato.
+
+    \begin{enumerate}
+        \item Chiedere all'utente il nome di un file
+        \begin{itemize}
+            \item Il nome non può essere vuoto e non può contenere i caratteri `\texttt{?}', `\texttt{/}' e `\texttt{*}'
+            \item Se il nome non è valido, va richiesto fino a che non sia corretto
+        \end{itemize}
+        \item Aprire il file e leggere il suo contenuto
+        \item Contare il numero di vocali contenute nel file
+        \item Chiedere all'utente il nome di un secondo file
+        \begin{itemize}
+            \item Come prima, se il nome non è corretto, richiederlo
+        \end{itemize}
+        \item Aprire il secondo file e scrivere il conteggio effettuato in precedenza
+    \end{enumerate}
+\end{exerciseframe}
+
+
+% TODO
+%   aggiungere named arguments
+%       print(3, 4, sep='-', end='')
+%   aggiungere *args e **kwargs

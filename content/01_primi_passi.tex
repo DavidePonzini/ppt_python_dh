@@ -5,7 +5,7 @@
     \begin{columns}
         \col{.5}
         \begin{itemize}
-            \item I termini \textit{``terminale''}, \textit{``shell''} e \textit{``prompt dei comandi''} si riferiscono alla stessa cosa
+            \item I termini \textit{``terminale''}, \textit{``shell''}, \textit{``prompt dei comandi''} e \textit{``command line''} si riferiscono alla stessa cosa
 
             \bigskip
             \item Useremo il terminale spessissimo in questo corso, è molto importante imparare ad usarlo bene fin da subito
@@ -34,7 +34,7 @@
 
 \begin{contentframe}
     \frametitle{Utilizzo del terminale}
-    \frametitle{Cambiare cartelle}
+    \framesubtitle{Cambiare cartelle}
 
     \begin{itemize}
         \item La riga corrente del prompt mi indica sempre in che cartella mi trovo
@@ -43,7 +43,7 @@
         \end{itemize}
         
         \bigskip
-        \item Per cambiare cartella uso il comando \boxed{\texttt{cd}} \textit{(Change Directory)}
+        \item Per cambiare cartella si usa il comando \boxed{\texttt{cd}} \textit{(Change Directory)}
         \begin{itemize}
             \item \boxed{\texttt{cd NomeCartella}}
             
@@ -53,7 +53,7 @@
 
 \begin{exampleframe}
     \frametitle{Utilizzo del terminale}
-    \frametitle{Cambiare cartelle -- errori comuni}
+    \framesubtitle{Cambiare cartelle -- errori comuni}
 
     \centering
     \boxed{\texttt{cd NomeCartella}}
@@ -81,30 +81,73 @@
 
 \begin{exampleframe}
     \frametitle{Utilizzo del terminale}
-    \frametitle{Cambiare cartelle -- nomi speciali}
+    \framesubtitle{Cambiare cartelle -- nomi speciali}
 
     
     \begin{itemize}
         \item Alcune cartelle hanno dei nomi speciali:
         \begin{itemize}
-            \item \boxed{\texttt{.}}: cartella corrente
-            \item \boxed{\texttt{..}}: livello superiore
-            \item \boxed{\texttt{\tilde}}: livello superiore
+            \item \boxed{\texttt{cd .}}~: cartella corrente
+            \item \boxed{\texttt{cd ..}}~: livello superiore
+            \item \boxed{\texttt{cd \tilde}}~: cartella home
+            \item \boxed{\texttt{cd /}}~: root directory \textit{(cartella più ``in alto'')}
         \end{itemize}
         \bigskip
-        
-        \item Se la nostra cartella ha degli spazi bisogna racchiuderla tra virgolette
+
+        \item Su Windows, per cambiare partizione \textit{(es. da \texttt{C:} a \texttt{D:})} non si usa \texttt{cd} ma si scrive solo la partizione che ci interessa
         \begin{itemize}
-            \item \texttt{cd "La mia cartella"} oppure \texttt{cd \textquotesingle{}La mia cartella\textquotesingle{}} 
-        \end{itemize}
-        
-        \bigskip
-        \item I caratteri \texttt{"} e \texttt{\textquotesingle{}} sono diversi da ``, '', ` e '
-        \begin{itemize}
-            \item Particolarmente importante quando si fa copia-incolla
+            \item \boxed{\texttt{d:}}
         \end{itemize}
     \end{itemize}
 \end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Utilizzo del terminale}
+    \framesubtitle{Mostrare contenuto cartelle}
+
+    \begin{itemize}
+        \item Per visualizzare il contenuto si usa il comando:
+        \begin{itemize}
+            \item \boxed{\texttt{dir}} \textit{(DIRectory)} -- Windows
+            \item \boxed{\texttt{ls}} \textit{(LiSt)} -- Linux e Mac
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Utilizzo del terminale}
+    \framesubtitle{Suggerimenti}
+
+    \begin{itemize}
+        \item Il tasto \texttt{Tab} autocompleta spesso comandi e nomi di file/cartelle
+
+        \bigskip
+        \item Le frecce su e giù permettono di ciclare tra gli ultimi comandi eseguiti
+        \item Le frecce sinistra e destra permettono di spostarsi nel testo del comando corrente
+        
+        \bigskip
+        \item Il mouse non serve a niente
+
+        \bigskip
+        \item \texttt{Ctrl+C} interrompe forzatamente l'esecuzione del comando corrente
+        \begin{itemize}
+            \item Non fa copia!
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Utilizzo del terminale}
+    \frametitle{Esercizio}
+
+    \begin{enumerate}
+        \item Creare una cartella sul Desktop \textit{(o dove preferite)}
+        \item Creare un file in quella cartella
+        \item Aprire il terminale
+        \item Navigare fino alla cartella creata
+        \item Mostrarne il contenuto
+    \end{enumerate}
+\end{exerciseframe}
 
 \makesectionframe{Python}
 
@@ -199,15 +242,107 @@
     \end{itemize}
 \end{exampleframe}
 
-\begin{exerciseframe}
-    \frametitle{Hello, world!}
+\begin{contentframe}
+    \frametitle{Modalità interattiva VS modalità script}
 
     \begin{itemize}
-        \item Eseguire il seguente programma: \fbox{\texttt{print(\textquotesingle{}Hello, world!\textquotesingle{})}}
+        \item L'interprete Python può essere eseguito in due modalità
 
         \bigskip
-        \item Se lavoriamo in locale: creare un file con estensione .py, scrivere il codice, invocare l'interprete col seguente comando da terminale \fbox{\texttt{python nomedelfile.py}}
+        \item Modalità interattiva
+        \begin{itemize}
+            \item Si scrivono i comandi direttamente nel terminale
+            \item Sono eseguiti non appena scritti
+            \item Stampa tutti i valori in output
+        \end{itemize}
+
+        \bigskip
+        \item Modalità script
+        \begin{itemize}
+            \item Si scrivono i comandi in un file
+            \item Si esegue l'intero file
+            \item Stampa solo se si usa la funzione \texttt{print()}
+        \end{itemize}
     \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Modalità interattiva VS modalità script}
+
+    \begin{itemize}
+        \item La modalità interattiva è consigliata per:
+        \begin{itemize}
+            \item Vedere velocemente l'output di un certo comando
+            \item Fare prove o esperimenti
+        \end{itemize}
+
+        \bigskip
+        \item La modalità script è consigliata per:
+        \begin{itemize}
+            \item Eseguire più volte lo stesso codice senza doverlo riscrivere ogni volta
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+
+\begin{exerciseframe}
+    \frametitle{Esercizio guidato (1)}
+    \framesubtitle{Modalità interattiva}
+
+    \begin{enumerate}
+        \item Aprire una shell ed eseguire il comando \boxed{\texttt{python}}\footnote[frame]{Se il computer non trova il comando, provate con \texttt{python3}} o il comando \boxed{\texttt{ipython}}\footnote[frame]{Fa le stesse cose di \texttt{python}, ma è esteticamente più carino}
+        \item Scrivere ciascuno dei seguenti comandi e premere Invio:
+            \begin{itemize}
+                \item \texttt{1 + 1}
+                \pause
+                \item \texttt{2 > 2}
+                \pause
+                \item \texttt{2 + 1 > 2}
+                \item \texttt{4 + 6 * 2 == 10}
+                \item \texttt{(4 + 6) * 2 == 10}
+                \item \texttt{5 - 5 == 3 or 1 < 2}
+                \item \texttt{5 / 2}
+            \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio guidato (2)}
+    \framesubtitle{Modalità interattiva}
+
+    \begin{enumerate}
+        \item Aprire una shell ed eseguire il comando \boxed{\texttt{python}}\footnote[frame]{Se il computer non trova il comando, provate con \texttt{python3}} o il comando \boxed{\texttt{ipython}}\footnote[frame]{Fa le stesse cose di \texttt{python}, ma è esteticamente più carino}
+        \item Scrivere ciascuno dei seguenti comandi e premere Invio:
+            \begin{itemize}
+                \item \texttt{\textquotesingle{}Nome\textquotesingle{} == \textquotesingle{}Davide\textquotesingle{}}
+                \item \texttt{len(\textquotesingle{}Python\textquotesingle{})}
+                \item \texttt{len(\textquotesingle{}Ciao come stai?\textquotesingle{}) > len(\textquotesingle{}Ciaocomestai\textquotesingle{})}
+            \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+
+\begin{exerciseframe}
+    \frametitle{Esercizio guidato}
+    \framesubtitle{Modalità script}
+
+    \begin{enumerate}
+        \item Creare un file chiamato \texttt{prova1.py}
+        \item Scrivere nel file \boxed{\texttt{print(\textquotesingle{}Hello, world!\textquotesingle{})}}
+        \item Salvare il file
+        \item Scrivere nella shell \boxed{\texttt{python prova1.py}}
+        \begin{itemize}
+            \item Assicuratevi di essere nella cartella corretta!
+        \end{itemize}
+
+        \pause
+        \bigskip
+        \item Modificare il file in un modo a vostra scelta
+        \item Eseguire nuovamente lo script
+        \begin{itemize}
+            \item Se l'output non è cambiato, è perché non avete salvato il file
+        \end{itemize}
+    \end{enumerate}
 \end{exerciseframe}
 
 \makesectionframe{Concetti base}
@@ -231,7 +366,8 @@
 \end{contentframe}
 
 \begin{exerciseframe}
-    \frametitle{Funzioni}
+    \frametitle{Esercizio guidato}
+    \framesubtitle{Funzioni - \texttt{print()}}
 
     Cosa stampano le seguenti funzioni?
     \begin{itemize}
@@ -394,19 +530,116 @@
     \end{columns}
 \end{contentframe}
 
-\begin{exerciseframe}
+\begin{contentframe}
     \frametitle{Variabili}
+    \framesubtitle{Stringhe}
 
-    Salvare in una variabile e stampare i seguenti valori
     \begin{itemize}
-        \item 7\pause
-        \item 5.5\pause
-        \item ``Ciao come stai?''\pause
-        \item True\pause
-        \item{} [0, 1, 1, 2, 3, 5, 8, 13]\pause
-        \item \{0, 1, 1, 2, 3, 5, 8, 13\}\pause
-        \item I voti associati a tre studenti
+        \item Le stringhe si possono delimitare con i caratteri \texttt{"} o \textquotesingle{}
+        \begin{itemize}
+            \item \texttt{"Stringa"} oppure \texttt{\textquotesingle{}Stringa\textquotesingle{}}
+        \end{itemize}
+
+        \bigskip
+        \item Per stampare alcuni caratteri speciali, devo usare una sequenza di escape
+        \begin{itemize}
+            \item \texttt{$\backslash$n} $\rightarrow$ A capo
+            \item \texttt{$\backslash$t} $\rightarrow$ Tabulazione
+            \item \texttt{$\backslash$r} $\rightarrow$ Carriage Return (riporta a inizio riga)
+            \item \texttt{$\backslash\backslash$} $\rightarrow$ Carattere \texttt{$\backslash$}
+            \item \texttt{$\backslash$\textquotesingle{}} o \texttt{$\backslash$"} $\rightarrow$ Caratteri \texttt{\textquotesingle{}} o \texttt{"} (da usare solo quando necessario)
+        \end{itemize}
     \end{itemize}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio}
+    \framesubtitle{Sequenze di escape}
+
+    \begin{itemize}
+        \item Stampare le seguenti stringhe
+        \begin{itemize}
+            \item \textit{Queste sono\\due righe}
+            \smallskip
+            \item \textit{Oggi c'è il sole!}
+            \smallskip
+            \item \textit{J. K. Rowling ha scritto ``Harry Potter''.}
+            \smallskip
+            \item \textit{L'autore de ``Il Signore degli Anelli'' è J. R. R. Tolkien.}
+        \end{itemize}
+    \end{itemize}
+\end{exerciseframe}
+
+
+\begin{contentframe}
+    \frametitle{Variabili}
+    \framesubtitle{Casting}
+
+    \begin{itemize}
+        \item Permette di convertire una variabile da un tipo ad un altro
+
+        \bigskip
+        \item Si usano (generalmente) funzioni omonime al tipo che vogliamo ottenere
+        \begin{itemize}
+            \item \texttt{int(3.5)} $\rightarrow$ \texttt{3}
+            \item \texttt{int(\textquotesingle{}11\textquotesingle{})} $\rightarrow$ \texttt{11}
+            \item \texttt{set([1, 2, 2, 3])} $\rightarrow$ \texttt{\{1, 2, 3\}}
+        \end{itemize}
+
+        \bigskip
+        \item Per vedere di che tipo è un dato si può usare la funzione \boxed{\texttt{type(}\textit{valore}\texttt{)}}
+        
+    \end{itemize}
+\end{contentframe}
+
+
+\begin{exerciseframe}
+    \frametitle{Esercizio guidato (1)}
+    \framesubtitle{Variabili}
+
+    \begin{enumerate}
+        \item Salvare ciascun valore in una variabile.\\
+    Stampare ciascun valore affiancato dal proprio tipo.
+        \begin{itemize}
+            \item 7\pause
+            \item 5.5\pause
+            \item ``Ciao come stai?''\pause
+            \item True\pause
+            \item{} [0, 1, 1, 2, 3, 5, 8, 13]\pause
+            \item \{0, 1, 1, 2, 3, 5, 8, 13\}\pause
+            \item  \{\textquotesingle{}Alice\textquotesingle{}: True, \textquotesingle{}Bob\textquotesingle{}: False\}
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio guidato (2)}
+    \framesubtitle{Variabili e \texttt{print()}}
+
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+        \item Salvare i seguenti numeri in due variabili
+        \begin{itemize}
+            \item $x = 3$
+            \item $y = 5$
+        \end{itemize}
+
+        \bigskip
+        \item Stampare ``x vale 3 - y vale 5'' nei seguenti modi proposti
+        \begin{itemize}
+            \item \texttt{print(\textquotesingle{}x vale x - y vale y\textquotesingle{})}
+            \pause
+            \item \texttt{print(\textquotesingle{}x vale\textquotesingle{}, x, \textquotesingle{}- y vale\textquotesingle{}, y)}
+            \pause
+            \item \texttt{print(\textquotesingle{}x vale \textquotesingle{} + str(x) + \textquotesingle{} - y vale \textquotesingle{} + str(y))}
+            \pause
+            \item \texttt{print(\textquotesingle{}x vale \{\} - y vale \{\}\textquotesingle{}.format(x, y))}
+            \pause
+            \item \texttt{print(\textquotesingle{}x vale \{primo\} - y vale \{secondo\}\textquotesingle{}.format(secondo=y, primo=x))}
+            \pause
+            \item \texttt{print(f\textquotesingle{}x vale \{x\} - y vale \{y\}\textquotesingle{})}
+        \end{itemize}
+    \end{enumerate}
 \end{exerciseframe}
 
 \begin{contentframe}
@@ -414,17 +647,17 @@
 
     \centering
     \begin{tabular}{c|c|c|c}
-        Operazione                      & Operatore     & Esempio           & Risultato         \\
+        Operazione                      & Operatore     & Esempio           & Risultato             \\
         \midrule
         \midrule
-        Somma                           & \texttt{+}    & \texttt{4 + 3}    & \texttt{7}        \\
-        Sottrazione                     & \texttt{-}    & \texttt{4 - 3}    & \texttt{1}        \\
-        Moltiplicazione                 & \texttt{*}    & \texttt{4 * 3}    & \texttt{12}       \\
-        Divisione                       & \texttt{/}    & \texttt{4 / 3}    & \texttt{1.3333}   \\
+        Addizione                       & \texttt{+}    & \texttt{7 + 3}    & \texttt{10}           \\
+        Sottrazione                     & \texttt{-}    & \texttt{7 - 3}    & \texttt{4}            \\
+        Moltiplicazione                 & \texttt{*}    & \texttt{7 * 3}    & \texttt{21}           \\
+        Divisione                       & \texttt{/}    & \texttt{7 / 3}    & \texttt{2.333...35}   \\
         \midrule
-        Elevamento a potenza            & \texttt{**}   & \texttt{4 ** 3}   & \texttt{64}       \\
-        Divisione senza resto           & \texttt{//}   & \texttt{4 // 3}   & \texttt{1}        \\
-        Modulo (resto della divisione)  & \texttt{\%}   & \texttt{4 \% 3}   & \texttt{1}        \\
+        Elevamento a potenza            & \texttt{**}   & \texttt{7 ** 3}   & \texttt{343}          \\
+        Divisione senza resto           & \texttt{//}   & \texttt{7 // 3}   & \texttt{2}            \\
+        Modulo (resto della divisione)  & \texttt{\%}   & \texttt{7 \% 3}   & \texttt{1}            \\
     \end{tabular}
 \end{contentframe}
 
@@ -436,12 +669,12 @@
         Operazione                      & Operatore     & Esempio                   & Risultato         \\
         \midrule
         \midrule
-        Maggiore                        & \texttt{>}    & \texttt{4 > 3}            & \texttt{True}     \\
-        Maggiore o uguale               & \texttt{>=}   & \texttt{4 >= 3}           & \texttt{True}     \\
-        Minore                          & \texttt{<}    & \texttt{4 < 3}            & \texttt{False}    \\
-        Minore o uguale                 & \texttt{<=}   & \texttt{4 <= 3}           & \texttt{False}    \\
-        Uguale                          & \texttt{==}   & \texttt{4 == 3}           & \texttt{False}    \\
-        Diverso                         & \texttt{!=}   & \texttt{4 != 3}           & \texttt{True}     \\
+        Maggiore                        & \texttt{>}    & \texttt{7 > 3}            & \texttt{True}     \\
+        Maggiore o uguale               & \texttt{>=}   & \texttt{7 >= 3}           & \texttt{True}     \\
+        Minore                          & \texttt{<}    & \texttt{7 < 3}            & \texttt{False}    \\
+        Minore o uguale                 & \texttt{<=}   & \texttt{7 <= 3}           & \texttt{False}    \\
+        Uguale                          & \texttt{==}   & \texttt{7 == 3}           & \texttt{False}    \\
+        Diverso                         & \texttt{!=}   & \texttt{7 != 3}           & \texttt{True}     \\
         \midrule
         Negazione                       & \texttt{not}  & \texttt{not True}         & \texttt{False}    \\
         Congiunzione                    & \texttt{and}  & \texttt{True and False}   & \texttt{False}    \\
@@ -450,7 +683,8 @@
 \end{contentframe}
 
 \begin{exerciseframe}
-    \frametitle{Operazioni}
+    \frametitle{Esercizio}
+    \framesubtitle{Operazioni}
 
     Cosa stampa questo programma?
 
@@ -486,13 +720,143 @@
 \end{contentframe}
 
 \begin{exerciseframe}
-    \frametitle{Input}
+    \frametitle{Esercizi (1)}
+    \framesubtitle{Input}
 
-    \begin{itemize}
+    \begin{enumerate}
+        \item Chiedere all'utente un numero e stamparlo
+
+        \bigskip
+        \item Chiedere all'utente un numero e stamparne il doppio
+        
+        \bigskip
+        \item Chiedere all'utente due numeri e stamparne la loro concatenazione
+        \begin{itemize}
+            \item \textit{Esempio: se l'utente inserisce 1 e 2, bisogna stampare 12}
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (2)}
+    \framesubtitle{Input}
+
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item Chiedere all'utente il proprio nome e salutarlo. Il programma deve essere simile a questo:\\
+            \texttt{[Python] Come ti chiami?}\\
+            \texttt{[Utente] Davide}\\
+            \texttt{[Python] Ciao Davide!}
+
+        \bigskip
         \item Creare un programma che legga 3 numeri e stampi il minimo, il massimo e la media dei valori inseriti
         \begin{itemize}
             \item Per calcolare minimo e massimo potete usare le funzioni \fbox{\texttt{min}} e \fbox{\texttt{max}}
         \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+
+\begin{contentframe}
+    \frametitle{Condizioni}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Permettono di eseguire delle azioni solo in certi casi
+    
+            \bigskip
+            \item Sintassi:
+            \begin{itemize}
+                \item Dopo \texttt{if} c'è uno spazio
+                \item La condizione ritorna un booleano (\texttt{True}/\texttt{False})
+                \item Dopo la condizione ci sono i due punti (``\texttt{:}'')
+                \item Le istruzioni eseguite all'interno della condizione sono indentate (con un tab o 4 spazi)
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{if.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Condizioni}
+
+    \begin{itemize}
+        \item Se ho più condizioni, posso anche usare \texttt{else} o \texttt{elif} (\textit{else if})
+    \end{itemize}
+
+    \bigskip
+    \centering
+    \only<1>{
+        \image{if_else.jpg}
+    }
+    \only<2>{
+        \image[.5]{if_elif_bad.jpg}
+    }
+    \only<3>{
+        \image[.5]{if_elif_good.jpg}
+        
+        \bigskip
+        \texttt{elif} permette di mantenere il codice più facilmente leggibile
+    }
+    
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (1)}
+    \framesubtitle{Condizioni}
+
+    \begin{enumerate}
+        \item Chiedere un numero e determinare se è pari
+
+        \bigskip
+        \item Chiedere all'utente un numero e determinare se è positivo, negativo o zero
+
+        \bigskip
+        \item Chiedere in input due parole e stampare quella con più caratteri
+        \begin{itemize}
+            \item Per vedere la lunghezza di una stringa, usare \boxed{\texttt{len(}\textit{stringa}\texttt{)}}
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (2)}
+    \framesubtitle{Condizioni}
+
+    \begin{itemize}
+        \item Chiedere all'utente in quale città abita
+        \item Se la risposta è ``Genova'', rispondere con ``Anche io!''
+        \item Altrimenti, rispondere con ``Io invece abito a Genova''
+
+        \pause
+        \bigskip
+        \item Accettare come risposte corrette ``Genova'', ``genova'' e ``GENOVA''
+        
+        \pause
+        \bigskip
+        \item Opzionale: accettare tutte le possibili variazioni di case
     \end{itemize}
 \end{exerciseframe}
 
+\begin{exerciseframe}
+    \frametitle{Esercizi di fine argomento}
+
+    \begin{itemize}
+        \item Chiedere all'utente un anno e dire se è bisestile
+        \begin{itemize}
+            \item \textit{Un anno è bisestile se è divisibile per 4...}
+            \begin{itemize}
+                \item \textit{ma non è divisible per 100}
+                \item \textit{è divisible per 400}
+            \end{itemize}
+        \end{itemize}
+
+        \bigskip
+        \item Chiedere all'utente di inserire tre numeri, rispettivamente giorno, mese ed anno di una data. Stampare se la data inserita è una data valida o meno
+    \end{itemize}
+\end{exerciseframe}

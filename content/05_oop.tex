@@ -1,0 +1,233 @@
+\makesectionframe{Object-Oriented Programming}[Programmazione orientata ad oggetti]
+
+\begin{contentframe}
+    \frametitle{Object-Oriented Programming}
+
+    \begin{itemize}
+        \item Tecnica di programmazione
+        \begin{itemize}
+            \item Stesso linguaggio
+            \item Stessi programmi
+            \item Diverso metodo di organizzare il codice
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Object-Oriented Programming}
+
+    \begin{itemize}
+        \item Ogni ``entità'' è vista come un \textbf{oggetto}
+
+        \bigskip
+        \item Su quell'oggetto applico diverse operazioni ed ottengo un altro oggetto
+        \item Ripeto fino ad arrivare al risultato
+
+        \bigskip
+        \item I programmi non sono più una sequenza di azioni, ma un insieme di oggetti che interagiscono tra di loro
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Perché?}
+    \framesubtitle{Semplicità concettuale}
+
+    \begin{columns}
+        \col{.5}
+        \textbf{Senza oggetti}
+        \begin{itemize}
+            \item Devo tenere a mente l'intera situazione in ogni momento
+        \end{itemize}
+        
+        \col{.5}
+        \textbf{Con oggetti}
+        \begin{itemize}
+            \item Tengo a mente solo una parte del problema alla volta
+        \end{itemize}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Perché?}
+    \framesubtitle{Organizzazione codice}
+
+    \begin{columns}
+        \col{.5}
+        \textbf{Senza oggetti}
+        \begin{itemize}
+            \item Ho molte funzioni diverse nello stesso blocco di codice
+        \end{itemize}
+        
+        \col{.5}
+        \textbf{Con oggetti}
+        \begin{itemize}
+            \item In un certo blocco di codice ho solo funzioni relative ad un singolo concetto
+        \end{itemize}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Perché?}
+    \framesubtitle{Semplicità programmazione}
+
+    \begin{columns}
+        \col{.5}
+        \textbf{Senza oggetti}
+        \begin{itemize}
+            \item Ho a disposizione in ogni momento tutte le funzioni esistenti
+        \end{itemize}
+        
+        \col{.5}
+        \textbf{Con oggetti}
+        \begin{itemize}
+            \item Ho a disposizione solo le funzione rilevanti ai dati che sto usando
+        \end{itemize}
+    \end{columns}
+\end{contentframe}
+
+\makesectionframe{Classi}
+
+\begin{contentframe}
+    \frametitle{Classi}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Usate per rapprentare gli oggetti
+            \begin{itemize}
+                \item Secondo la OOP, i programmi sono classi che interagiscono tra di loro
+            \end{itemize}
+
+            \bigskip
+            \item Classe
+            \begin{itemize}
+                \item Insieme di dati (e funzioni)
+                \item Relativa ad un singolo concetto
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{class.jpg}
+        {
+            \footnotesize
+            \textit{Questo è un esempio, la sintassi reale è leggermente diversa}
+        }
+    \end{columns}
+\end{contentframe}
+
+
+\begin{contentframe}
+    \frametitle{Metodi}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Funzioni contenute dentro ad una classe che operano sui dati di quella classe
+
+            \bigskip
+            \item Per accedere ai dati della classe, devo usare \texttt{self}
+            \begin{itemize}
+                \item Salvo rare eccezioni, \texttt{self} è il primo argomento di ogni metodo
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{class_method.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Metodi}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Nel programma, quando ho una persona, ho a dispozione anche un metodo per controllare se è minorenne
+
+            \bigskip
+            \item Per accedere agli elementi contenuti in un oggetto, uso il `\texttt{.}' \textit{(dot-notation)}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{class_method_usage.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Costruttore}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Metodo per inizializzare una classe
+            \item Posso anche passare dei valori
+
+            \bigskip
+            \item La funzione si chiama \texttt{\_\_init\_\_}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{class_init.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Costruttore}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Nel programma principale, passo i valori quando creo l'oggetto
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{class_init_usage.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio (1/2)}
+
+    \begin{itemize}
+        \item Creare la classe \texttt{Item}, che contiene:
+        \begin{itemize}
+            \item \texttt{name} (Nome dell'articolo)
+            \item \texttt{price} (Prezzo dell'articolo)
+        \end{itemize}
+
+        \bigskip
+        \item Creare la classe \texttt{Person}, che contiene:
+        \begin{itemize}
+            \item \texttt{name} (Nome della persona)
+            \item \texttt{money} (Soldi a disposizione della persona)
+            \item \texttt{items} (Oggetti posseduti dalla persona. Al momento della creazione: nessuno)
+            \item \texttt{buy(self, item)} (Metodo che acquista un oggetto, se la persona se lo può permettere)
+        \end{itemize}
+    \end{itemize}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio (2/2)}
+
+    \begin{itemize}
+        \item Nel programma principale, eseguire le seguenti azioni:
+        \begin{enumerate}
+            \item Creare la persona `Mario', che ha a disposizione 25€
+            \item Creare una mela da 7€
+            \item Creare una pera da 5€
+            \item Creare un limone da 25€
+            \item Creare un arancio da 5€
+            \item Far acquistare a Mario una mela, due pere, un limone e tre arance
+            \item Stampare quanti soldi ha Mario
+            \item Stampare gli articoli che Mario possiede
+            \pause
+            \bigskip
+            \item Provare ad eseguire queste azioni con più persone
+        \end{enumerate}
+    \end{itemize}
+\end{exerciseframe}

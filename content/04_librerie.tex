@@ -1,0 +1,307 @@
+\makesectionframe{Librerie}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+
+    \begin{itemize}
+        \item Insieme di funzioni già pronte scritte da altre persone
+        \bigskip
+        \item Esistono numerose librerie
+        \item Ciascuna si occupa (generalmente) di una sola cosa
+        \bigskip
+        \item Per usarle nel mio codice uso il comando \boxed{\texttt{import} \textit{libreria}}
+        \begin{itemize}
+            \item Una volta importate, per usare le funzionalità mi basta scrivere:\\
+            \texttt{libreria.funzione}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Librerie}
+    \framesubtitle{Esempio}
+
+    \centering
+    \only<1>{
+        \image*[1][.7]{import.jpg}
+    }
+    \only<2>{
+        \image*[1][.7]{import2.jpg}
+    }
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{random}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Permette di generare numeri casuali
+
+            \bigskip
+            \item Le sequenze sono \textbf{pseudocasuali}
+            \begin{itemize}
+                \item Sembrano casuali ma non lo sono
+                \item Dipendono dal numero (``seed'') con cui sono inizializzate
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{random.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio guidato}
+    \framesubtitle{Inizializzazione sequenze random}
+
+    \begin{columns}
+        \col{.5}
+        \begin{enumerate}
+            \item Eseguire più volte il seguente programma
+            \item Provare a cambiare il valore del seed ed osservare le differenze
+        \end{enumerate}
+        
+        \col{.5}
+        \centering
+        \image{random_seed.jpg}
+    \end{columns}
+
+    \pause
+    \bigskip
+    \begin{itemize}
+        \item Quale seed mi può permettere di avere sequenze diverse ogni volta che eseguo il programma?
+    \end{itemize}
+\end{exerciseframe}
+
+\begin{exampleframe}
+    \frametitle{Random}
+
+    \begin{itemize}
+        \item Lo stesso seed porta sempre alla stessa sequenza di numeri casuali
+
+        \bigskip
+        \item Per avere ogni volta una sequenza diversa devo inizializzare seed con l'orario corrente
+        \item In Python, questa azione è fatta in automatico quando si importa la libreria
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi}
+    \framesubtitle{Libreria random}
+
+    \begin{enumerate}
+        \item Stampare un numero a caso. Ogni volta che il programma viene eseguito deve essere stampato un numero diverso
+
+        \pause
+        \bigskip
+        \item Simulare il lancio di una moneta. Il programma dovrà stampare ``Testa'' o ``Croce''
+
+        \pause
+        \bigskip
+        \item Scegliere un numero a caso tra 0 e 9. L'utente ha 3 tentativi per indovinare il numero. Se sbaglia, dire se il numero da indovinare è maggiore o minore di quello inserito
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{time}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Operazioni relative al tempo
+            \bigskip
+            \item \texttt{sleep} permette di bloccare l'esecuzione del programma per un certo numero di secondi
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{time.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{datetime}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Operazioni su date e ore
+            \bigskip
+            \item Contiene:
+            \begin{itemize}
+                \item \texttt{datetime.date}
+                \item \texttt{datetime.time}
+                \item \texttt{datetime.datetime}
+            \end{itemize}
+            \bigskip
+            \item \texttt{datetime.datetime.now} ritorna il timestamp corrente 
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{datetime.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (1)}
+    \framesubtitle{Libreria datetime}
+
+    \begin{enumerate}
+        \item Stampare la data corrente
+    
+        \pause
+        \bigskip
+        \item Creare un programma che dica ``Aspetta un secondo...'' e dopo una pausa di un secondo stampi ``Fatto!''
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (2)}
+    \framesubtitle{Libreria datetime}
+
+    Eseguire il seguente programma più volte. Perché i tempi cambiano?
+
+    \medskip
+    \image[1][.5]{time_sleep.jpg}
+\end{exerciseframe}
+
+\makesectionframe{Gestione librerie}
+
+\begin{contentframe}
+    \frametitle{Gestione librerie}
+
+    \begin{itemize}
+        \item Le librerie che abbiamo usato finora sono automaticamente installate in Python
+        \item Possiamo anche installare nuove librerie
+
+        \bigskip
+        \item Usiamo il modulo pip di Python
+        \begin{itemize}
+            \item \texttt{python -m pip install nuovalibreria}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Ambienti virtuali}
+
+    \begin{itemize}
+        \item \texttt{pip} installa in maniera globale
+        \item Spesso non è desiderabile
+        \begin{itemize}
+            \item Esempio: abbiamo due progetti che richiedono due diverse versioni della stessa libreria
+        \end{itemize}
+
+        \bigskip
+        \item Soluzione: si usano gli ambienti virtuali
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Ambienti virtuali}
+
+    \begin{itemize}
+        \item L'ambiente virtuale è di fatto una cartella
+        \item Contiene le librerie relative ad un solo progetto
+        \item Si può cancellare e ricreare senza alcun problema
+
+        \item Consiglio: scrivere tutte le librerie che scaricate in un file chiamato \texttt{requirements.txt}
+
+        \bigskip
+        \item Per crearlo si usa il comando \texttt{python -m venv venv}
+        \begin{itemize}
+            \item Il primo \texttt{venv} è il modulo, il secondo è il nome della cartella che creeremo
+        \end{itemize}
+        \item Per usarlo dobbiamo prima attivarlo
+        \begin{itemize}
+            \item Windows: \texttt{./venv/Scripts/activate}
+            \item Linux, Mac: \texttt{source ./venv/bin/activate}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Ambienti virtuali}
+    \framesubtitle{Guida alla creazione (1)}
+
+    \begin{enumerate}
+        \item Scrivere tutte le librerie che vi servono in un file chiamato \texttt{requirements.txt}
+        \begin{itemize}
+            \item Scrivere una sola libreria per riga
+        \end{itemize}
+
+        \bigskip
+        \item Creare l'ambiente virtuale tramite il comando \boxed{\texttt{python -m venv venv}}
+        \begin{itemize}
+            \item Il primo \texttt{venv} è il modulo, il secondo è il nome della cartella che creeremo
+        \end{itemize}
+        
+        \bigskip
+        \item Attivare l'ambiente virtuale
+        \begin{itemize}
+            \item Windows: \boxed{\texttt{./venv/Scripts/activate}}
+            \item Linux, Mac: \boxed{\texttt{source ./venv/bin/activate}}
+        \end{itemize}
+    \end{enumerate}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Ambienti virtuali}
+    \framesubtitle{Guida alla creazione (2)}
+
+    \begin{enumerate}
+        \item Attivare l'ambiente virtuale
+        \begin{itemize}
+            \item Windows: \boxed{\texttt{./venv/Scripts/activate}}
+            \item Linux, Mac: \boxed{\texttt{source ./venv/bin/activate}}
+        \end{itemize}
+
+        \bigskip
+        \item Installare le librerie indicate in \texttt{requirements.txt}
+        \begin{itemize}
+            \item \boxed{\texttt{python -m pip install -r requirements.txt}}
+        \end{itemize}
+
+        \bigskip
+        \item Usare Python normalmente!
+    \end{enumerate}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{argparse}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item 
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        % \image{datetime.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{pandas}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item 
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        % \image{datetime.jpg}
+    \end{columns}
+\end{contentframe}
+

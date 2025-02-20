@@ -1,0 +1,426 @@
+\makesectionframe{Cicli}
+
+\begin{contentframe}
+    \frametitle{Cicli}
+
+    \begin{itemize}
+        \item Permettono di ripetere le stesse azioni più volte
+
+        \bigskip
+        \item Due costrutti simili ed intercambiabili
+        \begin{itemize}
+            \item Usiamo quello più comodo per quello che dobbiamo fare
+        \end{itemize}
+        
+        \bigskip
+        \item Costrutto \texttt{while} per iterare fino a che una certa condizione non diventa falsa
+        \item Costrutto \texttt{for} per iterare su una serie di valori o un certo numero di volte
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Ciclo while}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Eseguo tutte le istruzioni all'interno del ciclo fino a che la condizione è vera
+            \item La condizione viene controllata prima di iniziare ogni iterazione
+
+            \bigskip
+            \item Consigliato quando ho una condizione booleana facilmente comprensibile
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{while.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Ciclo for}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Usato per iterare su una sequenza di valori
+            \item La variabile \texttt{value} (possiamo chiamarla come vogliamo) assume ad ogni iterazione un valore diverso
+
+            \bigskip
+            \item Consigliato quando ho una sequenza di elementi
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{for.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{While vs for (1)}
+
+    \begin{itemize}
+        \item I seguenti codici sono identici, ma uno è più facile da comprendere
+    \end{itemize}
+
+    \begin{columns}
+        \col{.5}
+        \centering
+        \image{while_example.jpg}
+        
+        \col{.5}
+        \centering
+        \image{for_example.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{While vs for (2)}
+
+    \begin{itemize}
+        \item I seguenti codici sono identici, ma uno è più facile da comprendere
+    \end{itemize}
+
+    \begin{columns}
+        \col{.5}
+        \centering
+        \image{while_example2.jpg}
+        
+        \col{.5}
+        \centering
+        \image{for_example2.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Break \& continue}
+
+    \begin{itemize}
+        \item Parole chiave speciali che si possono usare nei cicli
+
+        \bigskip
+        \item \boxed{\texttt{break}} interrompe immediatamente l'esecuzione del ciclo
+        \begin{itemize}
+            \item Esegue la prima istruzione fuori dal ciclo
+            \item Utile se una volta incontrato un certo elemento non vogliamo più far nulla
+        \end{itemize}
+
+        \bigskip
+        \item \boxed{\texttt{continue}} fa saltare il giro corrente
+        \begin{itemize}
+            \item Esegue la prima azione del ciclo col valore successivo
+            \item Utile se per un certo elemento non vogliamo eseguire alcuna azione ma per quelli dopo sì
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Break}
+    \framesubtitle{Esempio}
+
+    \image*{break.jpg}
+\end{exampleframe}
+
+\begin{exampleframe}
+    \frametitle{Continue}
+    \framesubtitle{Esempio}
+
+    \image*{continue.jpg}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (1)}
+    \framesubtitle{Cicli}
+
+    \begin{itemize}
+        \item Stampare tutti i numeri pari da 0 (compreso) a 500 (escluso)\pause, usando ciascuno dei seguenti metodi
+        \begin{itemize}
+            \item Ciclo \texttt{while}, con un contatore che parte da 1 ed incrementa di 2 ogni volta
+            \pause
+            \item Ciclo \texttt{while}, con un contatore che incrementa di 1 ed un \texttt{if} che stampa solo i numeri pari
+            \pause
+            \item Ciclo \texttt{while}, con un contatore che incrementa di 1 e un \texttt{if} che salta i numeri dispari
+            \pause
+            \item Ciclo \texttt{for}, con l'aiuto della funzione \texttt{range(0, 500)} ed un \texttt{if}
+            \pause
+            \item Ciclo \texttt{for}, con l'aiuto della funzione \texttt{range(500)} ed un \texttt{if}
+            \pause
+            \item Ciclo \texttt{for}, con l'aiuto della funzione \texttt{range(0, 500, 2)}
+        \end{itemize}
+    \end{itemize}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (2)}
+    \framesubtitle{Cicli}
+
+    \begin{itemize}
+        \bigskip
+        \item Chiedere un numero $x$ a scelta dell'utente e stampare la tabellina di quel numero (da $x*0$ a $x*10$)
+
+        \pause
+        \bigskip
+        \item Chiedere all'utente due numeri ($x$ e $n$) e stampare tutti i multipli di $x$ minori o uguali ad $n$
+    \end{itemize}
+\end{exerciseframe}
+
+
+\makesectionframe{Strutture dati}
+
+\begin{contentframe}
+    \frametitle{Strutture dati}
+
+    \begin{itemize}
+        \item Permettono di memorizzare dati in formati specifici
+
+        \bigskip
+        \item Le principali sono:
+        \begin{itemize}
+            \item Liste -- sequenza di elementi
+            \item Set -- sequenza di elementi senza ripetizioni
+            \item Dizionari -- associazione chiave-valore
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Liste}
+
+    \begin{itemize}
+        \item Sequenza di elementi ordinata
+
+        \bigskip
+        \item Posso accedere ad un elemento specifico sapendone la sua posizione
+        \item Attenzione: le posizioni partono da 0
+        \begin{itemize}
+            \item Il primo elemento si trova in pos. 0
+            \item Il secondo elemento si trova in pos. 1
+            \item ...
+            \item Il decimo elemento si trova in pos. 9
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Liste}
+    \framesubtitle{Operazioni}
+
+    \only<1>{\image[1][.75]{list_op1.jpg}}
+    \only<2>{\image[1][.75]{list_op2.jpg}}
+    \only<3>{\image[1][.75]{list_op3.jpg}}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Liste}
+    \framesubtitle{Splicing}
+
+    \begin{itemize}
+        \item Permette di ottenere un sottoinsieme della lista
+    
+        \bigskip
+        \item Si usa l'operatore \texttt{[...]} con due o tre argomenti, separati da ``\texttt{:}''
+        \begin{itemize}
+            \item \texttt{lista[start:end]}
+            \item \texttt{lista[start:end:step]}
+        \end{itemize}
+        
+        \item Seleziona tutti gli elementi da \texttt{start} (compreso) a \texttt{end} (escluso)
+        \begin{itemize}
+            \item Se \texttt{step} è presente, si salta di \texttt{step} valori alla volta
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Liste}
+    \framesubtitle{Splicing}
+
+    \only<1>{\image[1][.75]{list_op4.jpg}}
+    \only<2>{\image[1][.75]{list_op5.jpg}}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (1)}
+    \framesubtitle{Liste}
+
+    \begin{enumerate}
+        \item Chiedere all'utente di inserire 10 numeri in input. Al termine, stampare i numeri nello stesso ordine in cui sono stati inseriti
+
+        \pause
+        \bigskip
+        \item Chiedere all'utente di inserire 10 numeri in input. Al termine, stampare i numeri in ordine inverso rispetto a come sono stati inseriti
+
+        \pause
+        \bigskip
+        \item Chiedere all'utente di inserire 5 numeri in input. Al termine, chiedere un nuovo numero e dire se era già stato inserito
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (2)}
+    \framesubtitle{Liste}
+
+    \begin{columns}
+        \col{.5}
+        \begin{enumerate}
+            \setcounter{enumi}{3}
+            \item Chiedere all'utente di inserire dei numeri in input, fino a che non viene inserito 0. Infine, stampare:
+            \begin{itemize}
+                \item quanti numeri sono stati inseriti
+                \only<2->{
+                    \item il valore minimo
+                    \item il valore massimo
+                    \item la media
+                }
+                \only<3->{
+                    \item quanti numeri sono negativi
+                }
+                \only<4->{
+                    \item quanti numeri sono negativi nella seconda metà della sequenza \textit{(suggerimento: utilizzare la divisione tra interi)}
+                }
+            \end{itemize}
+        \end{enumerate}
+        
+        \col{.5}
+        \centering
+        \image[1][.7]{list_exercise.jpg}
+    \end{columns}
+    
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Set}
+
+    \begin{itemize}
+        \item Sequenza di elementi non ordinata e senza ripetizioni
+
+        \bigskip
+        \item Sono disponibili le stesse operazioni per le liste (con piccole eccezioni)
+        \item Non posso usare l'operatore ``\texttt{[...]}''
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Set}
+    \framesubtitle{Operazioni}
+
+    \only<1>{\image[1][.75]{set_op1.jpg}}
+    \only<2>{\image[1][.75]{set_op2.jpg}}
+ \end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi}
+    \framesubtitle{Set}
+
+    \begin{enumerate}
+        \item Chiedere all'utente di inserire dei nomi, fino a che non scrive ``stop''. Infine, stampare tutti i nomi inseriti. Nel caso un nome sia inserito più volte, vogliamo stamparlo una volta sola
+
+        \bigskip
+        \item Chiedere all'utente di inserire dei nomi, fino a che non scrive ``stop''. Infine, stampare il nome più lungo
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Dizionari}
+
+    \begin{itemize}
+        \item Associano ad ogni chiave un valore
+        \begin{itemize}
+            \item \textit{Esempio: associo ad ogni studente il suo voto}
+        \end{itemize}
+
+        \bigskip
+        \item Si può immaginare come l'unione tra set e liste
+        \begin{itemize}
+            \item Le chiavi si comportano come un set
+            \begin{itemize}
+                \item \textit{Non posso avere due studenti con lo stesso nome}
+            \end{itemize}
+            \item I valori si comportano come una lista
+            \begin{itemize}
+                \item \textit{Due studenti diversi possono avere lo stesso voto}
+            \end{itemize}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Dizionari}
+
+    \begin{itemize}
+        \item Ad ogni chiave può essere associato un solo valore
+        \item Se tento di assegnare un nuovo valore quando è già presente, sovrascriverò quello vecchio
+
+        \bigskip
+        \item I valori possono essere recuperati solo conoscendo la chiave a cui sono stati assegnati
+
+        \bigskip
+        \item Non possono esistere due chiavi identiche (visto che si usano per ricercare i valori)
+        \item Due chiavi diverse possono però avere lo stesso valore 
+
+        \bigskip
+        \item Se tento di assegnare un valore ad una chiave che non esiste, in automatico creo anche la chiave corrispondente 
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Dizionari}
+    \framesubtitle{Operazioni}
+
+    \only<1>{\image[1][.75]{dict_op1.jpg}}
+    \only<2>{\image[1][.75]{dict_op2.jpg}}
+    \only<3>{\image[1][.75]{dict_op3.jpg}}
+    \only<4>{\image[1][.75]{dict_op4.jpg}}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Note}
+
+    \begin{itemize}
+        \item Nelle liste, set e mappe possiamo usare qualsiasi tipo di dato
+
+        \bigskip
+        \item In una stessa struttura dati posso usare dati di tipi diversi
+            \image*[.7]{dict_note.jpg}
+            
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (0)}
+    \framesubtitle{Dizionari}
+
+    Creare il seguente dizionario:
+    
+    \bigskip
+    \image[.8]{dict_exercise.jpg}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (1)}
+    \framesubtitle{Dizionari}
+
+    \begin{columns}
+        \col{.6}
+        \begin{enumerate}
+            \item Stampare i voti di Paolo
+            \item Stampare la media di Paolo
+            \item Stampare le medie di tutti e tre gli studenti, usando un ciclo \texttt{for}
+            \item Stampare i singoli voti di tutti e tre gli studenti, usando due cicli \texttt{for}, in modo simile all'immagine
+        \end{enumerate}
+        
+        \col{.4}
+        \centering
+        \image[1][.5]{dict_exercise2.jpg}
+    \end{columns}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi (2)}
+    \framesubtitle{Dizionari}
+
+    \begin{enumerate}
+        \setcounter{enumi}{4}
+        \item Chiedere all'utente di inserire delle parole, fino a che non scrive ``stop''. Infine, stampare tutte le parole inserite, assieme al numero di volte che sono state inserite
+    \end{enumerate}
+\end{exerciseframe}
