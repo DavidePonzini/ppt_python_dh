@@ -9,7 +9,7 @@
         \item Esistono numerose librerie
         \item Ciascuna si occupa (generalmente) di una sola cosa
         \bigskip
-        \item Per usarle nel mio codice uso il comando \boxed{\texttt{import} \textit{libreria}}
+        \item Per usarle nel mio codice uso il comando \boxed{\texttt{import}~\textit{libreria}}
         \begin{itemize}
             \item Una volta importate, per usare le funzionalità mi basta scrivere:\\
             \texttt{libreria.funzione}
@@ -114,7 +114,7 @@
         \begin{itemize}
             \item Operazioni relative al tempo
             \bigskip
-            \item \texttt{sleep} permette di bloccare l'esecuzione del programma per un certo numero di secondi
+            \item \texttt{sleep(...)} permette di bloccare l'esecuzione del programma per un certo numero di secondi
         \end{itemize}
         
         \col{.5}
@@ -139,7 +139,7 @@
                 \item \texttt{datetime.datetime}
             \end{itemize}
             \bigskip
-            \item \texttt{datetime.datetime.now} ritorna il timestamp corrente 
+            \item \texttt{datetime.datetime.now()} ritorna il timestamp corrente 
         \end{itemize}
         
         \col{.5}
@@ -169,6 +169,118 @@
 
     \medskip
     \image[1][.5]{time_sleep.jpg}
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{re}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Operazioni su espressioni regolati \textit{(RegEx)}
+            \bigskip
+            \item Permette di creare ed utilizzare espressioni regolari sul testo
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{regex.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizi}
+    \framesubtitle{Libreria re}
+
+    \begin{enumerate}
+        \item Trovare in una stringa tutte le parole che iniziano con una maiuscola
+        \begin{itemize}
+            \item \texttt{r\textquotesingle{}\textbackslash{}b[A-Z]\textbackslash{}w*\textbackslash{}b\textquotesingle{}}
+        \end{itemize}
+        
+        \pause
+        \bigskip
+        \item Trovare in una stringa tutte le parole di almeno 5 caratteri
+        \begin{itemize}
+            \item \texttt{r\textquotesingle{}\textbackslash{}b[A-Za-z]\{5,\}\textbackslash{}b\textquotesingle{}}
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio (1/3)}
+    \framesubtitle{Libreria argparse}
+
+    \begin{enumerate}
+        \item Creare la funzione \boxed{\texttt{print\_file\_stats(filename, min\_c=3)}}\\che, dato il nome di un file, stampi:
+        \begin{itemize}
+            \item il numero di caratteri totali
+            \item il numero di righe
+            \item il numero di parole
+            \item il numero di parole che contengono almeno $min\_c$ caratteri
+        \end{itemize}
+
+        \bigskip
+        \item Testare la funzione su diversi file a vostra scelta
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{argparse}
+
+    \begin{itemize}
+        \item Permette di gestire facilmente gli argomenti da linea di comando
+
+        \bigskip
+        \item Molto utile per eseguire lo stesso programma su dati diversi senza dover modificare il codice ogni volta
+    \end{itemize}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio (2/3)}
+    \framesubtitle{Libreria argparse}
+
+    \begin{enumerate}
+        \item Imparare come usare la libreria \texttt{argparse}
+        \begin{itemize}
+            \item Introduzione: \url{https://docs.python.org/3/howto/argparse.html}
+            \begin{itemize}
+                \item Soprattutto: \textit{concepts, basics, positional and optional arguments}
+            \end{itemize}
+            \item Documentazione: \url{https://docs.python.org/3/library/argparse.html}
+            \begin{itemize}
+                \item Soprattutto: metodo \texttt{add\_argument()}
+            \end{itemize}
+            \item Tempo: 20 min
+        \end{itemize}
+
+        \bigskip
+        \item Al termine del tempo, chiedere chiarimenti su eventuali dubbi
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio (3/3)}
+    \framesubtitle{Libreria argparse}
+
+    \begin{enumerate}
+        \item Usare la libreria per specificare i seguenti argomenti tramite linea di comando:
+        \begin{itemize}
+            \item \texttt{filename} (obbligatorio): il nome del file da leggere
+            \item \texttt{-c} (opzionale): il numero di caratteri minimi di una parola
+            \begin{itemize}
+                \item Se non è specificato, vale 3
+            \end{itemize}
+        \end{itemize}
+
+        \bigskip
+        \item Invocare la funzione \boxed{\texttt{print\_file\_stats}}, passandogli i valori specificati tramite linea di comando
+
+        \bigskip
+        \item Eseguire il programma su diversi file
+    \end{enumerate}
 \end{exerciseframe}
 
 \makesectionframe{Gestione librerie}
@@ -211,17 +323,32 @@
         \item Contiene le librerie relative ad un solo progetto
         \item Si può cancellare e ricreare senza alcun problema
 
-        \item Consiglio: scrivere tutte le librerie che scaricate in un file chiamato \texttt{requirements.txt}
-
         \bigskip
-        \item Per crearlo si usa il comando \texttt{python -m venv venv}
+        \item Consiglio: scrivere tutte le librerie che scaricate in un file chiamato \texttt{requirements.txt}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Ambienti virtuali}
+
+    \begin{itemize}
+        \item Per creare una ambiente virtuale si usa il comando \texttt{python -m venv venv}
         \begin{itemize}
             \item Il primo \texttt{venv} è il modulo, il secondo è il nome della cartella che creeremo
         \end{itemize}
-        \item Per usarlo dobbiamo prima attivarlo
+
+        \bigskip
+        \item Per poterlo usare lo si deve prima attivare
         \begin{itemize}
             \item Windows: \texttt{./venv/Scripts/activate}
             \item Linux, Mac: \texttt{source ./venv/bin/activate}
+        \end{itemize}
+
+        \bigskip
+        \item In alternativa, si può lanciare direttamente l'eseguibile all'interno dell'ambiente:
+        \begin{itemize}
+            \item Windows: \texttt{./venv/Scripts/python}
+            \item Linux, Mac: \texttt{./venv/bin/python}
         \end{itemize}
     \end{itemize}
 \end{contentframe}
@@ -241,13 +368,6 @@
         \begin{itemize}
             \item Il primo \texttt{venv} è il modulo, il secondo è il nome della cartella che creeremo
         \end{itemize}
-        
-        \bigskip
-        \item Attivare l'ambiente virtuale
-        \begin{itemize}
-            \item Windows: \boxed{\texttt{./venv/Scripts/activate}}
-            \item Linux, Mac: \boxed{\texttt{source ./venv/bin/activate}}
-        \end{itemize}
     \end{enumerate}
 \end{exampleframe}
 
@@ -256,6 +376,7 @@
     \framesubtitle{Guida alla creazione (2)}
 
     \begin{enumerate}
+        \setcounter{enumi}{2}
         \item Attivare l'ambiente virtuale
         \begin{itemize}
             \item Windows: \boxed{\texttt{./venv/Scripts/activate}}
@@ -273,35 +394,166 @@
     \end{enumerate}
 \end{exampleframe}
 
-\begin{contentframe}
-    \frametitle{Librerie}
-    \framesubtitle{argparse}
+\begin{exerciseframe}
+    \frametitle{Esercizio}
+    \framesubtitle{Ambienti virtuali}
 
-    \begin{columns}
-        \col{.5}
-        \begin{itemize}
-            \item 
-        \end{itemize}
-        
-        \col{.5}
-        \centering
-        % \image{datetime.jpg}
-    \end{columns}
-\end{contentframe}
+    \begin{enumerate}
+        \item Creare un file chiamato \texttt{requirements.txt}
+        \item Scrivere al suo interno \texttt{pandas}
+        \item Creare l'ambiente virtuale e installare i requisiti
+        \item Provare ad importare la libreria e controllare che funzioni
+    \end{enumerate}    
+\end{exerciseframe}
 
 \begin{contentframe}
     \frametitle{Librerie}
     \framesubtitle{pandas}
 
-    \begin{columns}
-        \col{.5}
-        \begin{itemize}
-            \item 
-        \end{itemize}
-        
-        \col{.5}
-        \centering
-        % \image{datetime.jpg}
-    \end{columns}
+    \begin{itemize}
+        \item Operazioni su \textit{Dataset}
+
+        \item Permette di interagire con tabelle e grandi quantità di dati
+
+        \bigskip
+        \item Supporta tanti formati, tra cui CSV e Excel
+    \end{itemize}
 \end{contentframe}
 
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{pandas - Strutture dati}
+
+    \begin{itemize}
+        \item Due strutture dati da conoscere bene
+
+        \bigskip
+        \item \textbf{DataFrame}
+        \begin{itemize}
+            \item Insieme di righe e colonne
+            \item Rappresenta una tabella
+        \end{itemize}
+
+        \bigskip
+        \item \textbf{Series}
+        \begin{itemize}
+            \item Sequenza di valori
+            \item Generalmente rappresenta una colonna
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{pandas -- Operazioni principali}
+
+    \begin{itemize}
+        \item Per accedere ad una colonna si usano le \texttt{[...]}
+        \begin{itemize}
+            \item \texttt{studenti[\textquotesingle{}nome\textquotesingle{}]}
+        \end{itemize}
+
+        \bigskip
+        \item Per accedere ad una riga si usa la funzione \texttt{.iloc[...]}
+        \begin{itemize}
+            \item Si comporta come le \texttt{[]} nelle liste
+            \item Può ritornare una riga sola
+            \item Si può fare slicing, ritornando un insieme di righe
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{pandas -- Operazioni principali}
+
+    \begin{itemize}
+        \item Creazione, modifica e cancellazione di colonne avviene in maniera simile ai dizionari
+        \begin{itemize}
+            \item La chiave è il nome della colonna
+            \item Se non esiste, la creo
+            \item Se esiste, la sovrascrivo
+        \end{itemize}
+
+        \bigskip
+        \item Differenza rispetto ai dizionari
+        \begin{itemize}
+            \item Le azioni che indico sono automaticamente effettuate su ciascun valore
+            \item \texttt{df[\textquotesingle{}col2\textquotesingle{}] = df[\textquotesingle{}col1\textquotesingle{}] + 1}
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Librerie}
+    \framesubtitle{pandas -- Operazioni principali}
+
+    \begin{itemize}
+        \item Per filtrare una colonna sulla base dei valori, si combinano slicing e creazione di una nuova colonna
+        \begin{itemize}
+            \item Lo slicing ha bisogno di una Series di booleani (\texttt{True} se voglio selezionare la riga, \texttt{False} altrimenti)
+            \item La nuova colonna ha esattamente ciò
+        \end{itemize}
+
+        \bigskip
+        \item Vediamo un esempio...
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Librerie}
+    \framesubtitle{pandas -- Filtrare righe}
+
+    \begin{itemize}
+        \item \texttt{selezione = df[df[\textquotesingle{}col1\textquotesingle{}] > 5]}
+        \begin{itemize}
+            \item \texttt{df[\textquotesingle{}col1\textquotesingle{}] > 5}
+            \item Ritorna una Series di booleani
+            \item Rappresenta quali righe superano la condizione ($valore > 5$)
+
+            \bigskip
+            \item \texttt{selezione = df[...]}
+            \item Prende solo le colonne che sono \texttt{True}
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Esercizio}
+    \framesubtitle{Libreria pandas}
+
+    \begin{enumerate}
+        \item Scaricare il \href{https://raw.githubusercontent.com/DavidePonzini/didattica/refs/heads/main/books.csv}{seguente file} e salvarlo nella stessa cartella del progetto Python
+    
+        \bigskip
+        \item Facendovi aiutare da AI generativa ed usando la libreria \texttt{pandas}:
+        \begin{itemize}
+            \item Caricare il file in un dataset
+            \item Stampare la prima riga del dataset
+            \item Stampare le prime 10 righe del dataset
+            \item Stampare solo i titoli dei primi 10 libri
+            \item Contare quanti libri sono in italiano (\texttt{language\_code == \textquotesingle{}ita\textquotesingle{}})
+            \item Trovare il titolo del libro con ISBN \texttt{0763608041}
+
+            \pause
+            \bigskip
+            \item Verificare se la seguente affermazione è corretta:
+            \begin{itemize}
+                \item ``I libri in lingua inglese hanno un rating decisamente più alto rispetto a tutte le altre lingue''
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exampleframe}
+    \frametitle{Librerie}
+    \framesubtitle{pandas -- Note}
+
+    \begin{itemize}
+        \item Pandas supporta anche tabelle multidimensionali
+        \item Le rende facilmente leggibili in automatico
+
+        \bigskip
+        \item \href{https://chatgpt.com/share/67ca152f-ff08-8003-ab7a-ade375e83d4e}{Esempio}
+    \end{itemize}
+\end{exampleframe}

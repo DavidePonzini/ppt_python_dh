@@ -303,6 +303,17 @@
     \end{forest}
 }
 
+\NewDocumentCommand\smartartflowvertical{O{}}
+{
+    \begin{center}
+        \smartdiagramset{border color=none,
+            set color list={smartartlvl0,smartartlvl1,smartartlvl2,smartartlvl3},
+            back arrow disabled=true
+        }
+        \smartdiagram[flow diagram:vertical]{#1}
+    \end{center}
+}
+
 \NewDocumentCommand\smartartflow{O{}}
 {
     \begin{center}

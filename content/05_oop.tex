@@ -108,7 +108,8 @@
         
         \col{.5}
         \centering
-        \image{class.jpg}
+        \image*[1][.6]{class.jpg}
+        
         {
             \footnotesize
             \textit{Questo è un esempio, la sintassi reale è leggermente diversa}
@@ -230,4 +231,120 @@
             \item Provare ad eseguire queste azioni con più persone
         \end{enumerate}
     \end{itemize}
+\end{exerciseframe}
+
+\begin{exampleframe}
+    \frametitle{Note}
+
+    \begin{itemize}
+        \item Tramite OOP si riesce ad organizzare molto meglio programmi complessi
+        \item Si riduce il carico cognitivo sul programmatore
+
+        \bigskip
+        \item Iniziamo a vedere un esempio, che continueremo anche la prossima volta...
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Progettino}
+
+    \begin{enumerate}
+        \item Creare un file chiamato \texttt{texts.py}
+        \item Creare una classe chiamata \texttt{Text}
+
+        \pause
+        \bigskip
+        \item Effettuare le seguenti azioni nel costruttore \texttt{\_\_init\_\_(self, text)}:
+        \begin{itemize}
+            \item Salvare il testo in \texttt{self.text}
+            \item Separare il testo letto in parole e salvarle in \texttt{self.words}
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Progettino}
+
+    \begin{enumerate}
+        \setcounter{enumi}{3}
+        \item Aggiungere i seguenti metodi:
+        \begin{itemize}
+            \item \texttt{count\_chars(self)} -- ritorna il numero di caratteri totali
+            \item \texttt{count\_lines(self)} -- ritorna il numero di righe totali
+            \item \texttt{count\_words(self)} -- ritorna il numero di parole totali
+            \item \texttt{count\_different\_words(self)} -- ritorna il numero di parole diverse totali
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\makesectionframe{Object-Oriented Programming}[Inheritance]
+
+\begin{contentframe}
+    \frametitle{Inheritance}
+
+    \begin{itemize}
+        \item Concetto avanzato ma molto potente
+
+        \bigskip
+        \item Un classe può derivare da un'altra classe
+        \begin{itemize}
+            \item La classe \textit{figlio} eredita in automatico tutte le cose presenti nella classe \textit{padre}
+            \item Si possono aggiungere funzionalità specifiche per quella classe
+        \end{itemize}
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Inheritance}
+    \framesubtitle{Esempio}
+
+    \begin{itemize}
+        \item La classe \texttt{Text} fornisce operazioni generiche su un testo generico
+        \begin{itemize}
+            \item Contare caratteri, righe, parole, ...
+        \end{itemize}
+
+        \bigskip
+        \item La classe \texttt{TextFile}, che deriva da \texttt{Text}, fornisce operazioni generiche per un testo e operazioni specifiche per file
+        \begin{itemize}
+            \item Contare caratteri, righe, parole, ... (ereditate da \texttt{Text})
+            \item Leggere, scrivere, ... (scritte direttamente in \texttt{TextFile})
+        \end{itemize}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Inheritance}
+    \framesubtitle{Sintassi}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Il nome della classe \textit{padre} va messo tra parentesi quando si dichiara la classe
+
+            \bigskip
+            \item Per usare le funzionalità della classe \textit{padre}:
+            \begin{itemize}
+                \item Se non sono state ridefinite basta chiamarle direttamente
+                \item Se sono state ridefinite, si usa \texttt{super().funzione(...)}
+            \end{itemize}
+        \end{itemize}
+        
+        \col{.5}
+        \centering
+        \image{inheritance.jpg}
+    \end{columns}
+\end{contentframe}
+
+\begin{exerciseframe}
+    \frametitle{Progettino}
+    \framesubtitle{Inheritance}
+
+    \begin{enumerate}
+        \item Nel file \texttt{texts.py} creare la classe \texttt{Document}, che deriva da \texttt{Text}
+        \begin{itemize}
+            \item La classe offre le stesse funzionalità di \texttt{Text}
+            \item Il costruttore prende come argomento il nome del file, lo apre e ne legge il contenuto in automatico
+        \end{itemize}
+    \end{enumerate}
 \end{exerciseframe}

@@ -1,0 +1,177 @@
+\makesectionframe{NLP}[Natural Language Processing]
+
+\begin{contentframe}
+    \frametitle{NLP}
+
+    \begin{itemize}
+        \item Molte librerie con tante funzionalità
+        \begin{itemize}
+            \item \texttt{nltk, spacy, textblob, ...}
+        \end{itemize}
+
+        \bigskip
+        \item Alcune funzionalità sono fornite da più librerie
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{NLP}
+    \framesubtitle{Note}
+
+    \begin{itemize}
+        \item Spesso è necessario scaricare \textit{corpora} o altri dati
+        \item I file sono salvati sul computer, quindi non serve scaricarli ogni volta
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Installazione}
+
+    \begin{enumerate}
+        \item Aggiungere nel file \texttt{requirements.txt} le seguenti librerie:
+        \begin{itemize}
+            \item \texttt{nltk, spacy, textblob}
+        \end{itemize}
+        \item Installarle nell'ambiente virtuale
+        \item Eseguire il seguente codice nel terminale (dopo aver attivato l'ambiente):
+        \begin{itemize}
+            \item \texttt{python -m spacy download en\_core\_web\_sm}
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Progettino}
+
+    \begin{enumerate}
+        \item Nella classe \texttt{Text}:
+        \begin{itemize}
+            \item Modificare \texttt{self.words}, usando \texttt{nltk.tokenize.word\_tokenize(...)}
+            \pause
+            \item Aggiungere \texttt{self.sentences}, che tramite \texttt{nltk} divide correttamente in frasi
+            \item Aggiungere \texttt{get\_random\_sentence(self)}, che ritorna una frase casuale nel testo
+            \item Aggiungere \texttt{get\_random\_verb(self)}, che ritorna un \textbf{verbo} casuale nel testo
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+\begin{exerciseframe}
+    \frametitle{Progettino}
+
+    \begin{enumerate}
+        \setcounter{enumi}{1}
+        \item Creare il file \texttt{main.py}, in cui:
+        \begin{itemize}
+            \item Si importa il file \texttt{texts.py} 
+            \item Si analizzano alcuni testi \textit{(esempio guidato)}
+            \begin{itemize}
+                \item Named Entities
+                \item Analisi grammaticale
+                \item Sentiment Analysis
+                \item Stemming / Lemmatization
+            \end{itemize}
+        \end{itemize}
+    \end{enumerate}
+\end{exerciseframe}
+
+% caricare cartella su teams
+% slide: elencare brevemente le principali librerie 
+% mostrare esempi interattivi
+% per ogni altra cosa, ricecare su internet
+% esempio: usare T5 per riassumere testi
+
+
+\makesectionframe{API ChatGPT}
+
+\begin{contentframe}
+    \frametitle{API ChatGPT}
+
+    \begin{itemize}
+        \item Si può automatizzare l'interazione con ChatGPT
+        \begin{itemize}
+            \item Effettuare richieste in automatico
+            \item Effettuare automaticamente azioni sulle risposte
+        \end{itemize}
+
+        \bigskip
+        \item Libreria necessaria: \texttt{openai} 
+        \item Requisito: chiave API di ChatGPT \textit{(a pagamento)}
+    \end{itemize}
+\end{contentframe}
+
+\begin{contentframe}
+    \frametitle{Struttura dei prompt}
+
+    \begin{columns}
+        \col{.5}
+        \begin{itemize}
+            \item Lo strumento genera il messaggio a partire dai precedenti
+    
+            \bigskip
+            \item Tre tipi di messaggio
+            \begin{itemize}
+                \item \textbf{Sistema:} istruzioni per il modello \textit{(utile solo in situazioni particolari)}
+                \item \textbf{Utente:} richiesta dell'utente
+                \item \textbf{Assistente:} risposta del modello
+            \end{itemize}
+        \end{itemize}
+
+        \col{.5}
+        \centering
+        \smartartflowvertical[System,User,Assistant]
+    \end{columns}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{Struttura dei prompt}
+    \framesubtitle{Esempio}
+
+    \begin{itemize}
+        \item \href{https://chatgpt.com/share/6759a21f-19ec-8003-a172-e0630eae761d}{Prompt 1} ( $\boxed{S + U} \rightarrow A$ )
+        \item \href{https://chatgpt.com/share/67605a8c-2fec-8003-8e82-c54f49687c1b}{Prompt 2} ( $\boxed{S + U_1 + A_1 + U_2} \rightarrow A_2$ )
+
+        \bigskip
+        \item Il prompt di sistema non è specificato, quindi è:\\
+            \texttt{You are ChatGPT, a large language model trained by OpenAI. Answer as concisely and informatively as possible. Your knowledge is up to date until [cutoff date].}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{contentframe}
+    \frametitle{Note}
+
+    \begin{itemize}
+        \item Sono presenti tanti parametri che influenzano lo stile di risposta
+        \begin{itemize}
+            \item Temperatura, penalità di frequenza, top\_p, lunghezza massima, ...
+        \end{itemize}
+    
+        \bigskip
+        \item La conversazione è semplicemente una sequenza di stringhe
+        \begin{itemize}
+            \item Non devo necessariamente generarla tutta tramite AI
+        \end{itemize}
+
+        \bigskip
+        \item I costi sono basati sul numero di token ($out > in$) e sul modello usato
+    \end{itemize}
+\end{contentframe}
+
+\begin{exampleframe}
+    \frametitle{API ChatGPT}
+
+    \begin{itemize}
+        \item Documentazione: \url{https://platform.openai.com/docs/api-reference/chat}
+    \end{itemize}
+\end{exampleframe}
+
+\begin{exerciseframe}
+    \frametitle{Progettino}
+    \framesubtitle{Esercizio guidato}
+
+    \begin{enumerate}
+        \item Creare il file \texttt{chatgpt.py}, come da esempio guidato
+        \item Creare la classe \texttt{AIGeneratedText}, come da esempio guidato
+        \item Effettuare le stesse analisi di prima su testi generati da AI
+    \end{enumerate}
+\end{exerciseframe}
+
