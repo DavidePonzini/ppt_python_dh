@@ -6,3 +6,7 @@ rebase:
 	git rebase -X theirs template/main
 	git pull
 	git push
+
+%.pdf: %.tex
+	docker run --rm -v "$$PWD":/work -w /work texlive/texlive:latest latexmk -pdf -interaction=nonstopmode -file-line-error -auxdir=build "$<"
+	docker run --rm -v "$$PWD":/work -w /work texlive/texlive:latest latexmk -c
